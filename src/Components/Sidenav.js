@@ -27,6 +27,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import '../assets/css/custom.css';
 import user from '../assets/img/feature/user-img.jpg';
 import { Avatar } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -101,6 +102,8 @@ export default function Sidenav() {
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+    const navigate = useNavigate();
 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -247,7 +250,7 @@ export default function Sidenav() {
 
 
                 <List>
-                    <ListItem disablePadding sx={{ display: 'block' }}>
+                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/') }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
@@ -331,7 +334,7 @@ export default function Sidenav() {
                         </ListItemButton>
                     </ListItem>
 
-                    <ListItem disablePadding sx={{ display: 'block' }}>
+                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/prescription') }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
