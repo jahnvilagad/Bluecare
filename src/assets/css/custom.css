@@ -1,8 +1,0 @@
-@font-face {
-    font-family: "OpenSans";
-    src: url("../fonts/OpenSans.ttf") format("truetype");
-  }
-
-  * {
-    font-family: "OpenSans",sans-serif !important;
-  }

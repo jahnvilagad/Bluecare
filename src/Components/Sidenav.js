@@ -24,7 +24,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
-import '../assets/css/custom.css';
+import '../assets/css/custom.module.css';
 import user from '../assets/img/feature/user-img.jpg';
 import { Avatar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
@@ -208,7 +208,7 @@ export default function Sidenav() {
                     <Typography variant="h5" noWrap component="div">
                         Patient Dashboard
                     </Typography>
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' },marginLeft: "auto" }}>
                         <IconButton
                             size="large"
                             edge="end"
@@ -292,7 +292,7 @@ export default function Sidenav() {
                         </ListItemButton>
                     </ListItem>
 
-                    <ListItem disablePadding sx={{ display: 'block' }}>
+                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/speciality')}}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
@@ -356,7 +356,7 @@ export default function Sidenav() {
                     </ListItem>
 
 
-                    <ListItem disablePadding sx={{ display: 'block' }}>
+                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/upload-prescriptions') }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,

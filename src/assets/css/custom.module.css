@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "OpenSans";
+    src: url("../fonts/OpenSans.ttf") format("truetype");
+  }
+
+  * {
+    font-family: "OpenSans",sans-serif !important;
+  }
+
+  .ImgOverlay:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:#2b2e59e8;
+    width: 100%;
+    height: 100%;
+  }
+
+  .TableBg{
+    background-color: #F6F9FC;
+    border-bottom: 0;
+  }
