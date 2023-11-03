@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 
-export default function Prescriptions() {
+export default function Specialities() {
     return (
         <>
             <Box height={30} />

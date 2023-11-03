@@ -271,7 +271,7 @@ export default function Sidenav() {
                         </ListItemButton>
                     </ListItem>
 
-                    <ListItem disablePadding sx={{ display: 'block' }}>
+                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/appointments') }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
@@ -313,7 +313,7 @@ export default function Sidenav() {
                         </ListItemButton>
                     </ListItem>
 
-                    <ListItem disablePadding sx={{ display: 'block' }}>
+                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/medial-history') }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
@@ -377,7 +377,7 @@ export default function Sidenav() {
                         </ListItemButton>
                     </ListItem>
 
-                    <ListItem disablePadding sx={{ display: 'block' }}>
+                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/profile') }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
