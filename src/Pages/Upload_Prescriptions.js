@@ -55,12 +55,12 @@ export default function Upload_Prescriptions() {
 
                     <Box position="relative">
                         <Grid container spacing={2}>
-                            <Grid item lg={8}  md={12}>
+                            <Grid item lg={12} md={12}>
                                 <Card sx={{ margin: "1.5rem", marginTop: "-3rem", zIndex: 9999 }}>
                                     <CardContent>
                                         <FormGroup>
                                             <Grid container spacing={2}>
-                                                <Grid item lg={6} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
+                                                <Grid item lg={4} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
                                                     <TextField
                                                         id="outlined-required"
                                                         label="First Name"
@@ -69,7 +69,7 @@ export default function Upload_Prescriptions() {
                                                         fullWidth
                                                     />
                                                 </Grid>
-                                                <Grid item lg={6} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
+                                                <Grid item lg={4} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
                                                     <TextField
                                                         id="outlined-required"
                                                         label="Last Name"
@@ -78,7 +78,9 @@ export default function Upload_Prescriptions() {
                                                         fullWidth
                                                     />
                                                 </Grid>
-                                                <Grid item lg={6} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
+                                            </Grid>
+                                            <Grid container spacing={2}>
+                                                <Grid item lg={4} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
                                                     <FormControl>
                                                         <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
                                                         <RadioGroup
@@ -91,14 +93,16 @@ export default function Upload_Prescriptions() {
                                                         </RadioGroup>
                                                     </FormControl>
                                                 </Grid>
-                                                <Grid item lg={6} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
+                                                <Grid item lg={4} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
                                                     <LocalizationProvider dateAdapter={AdapterDayjs} >
                                                         <DemoContainer components={['DatePicker']}>
                                                             <DatePicker label="dd-mm-yyyy" sx={{ width: "100%" }} />
                                                         </DemoContainer>
                                                     </LocalizationProvider>
                                                 </Grid>
-                                                <Grid item lg={6} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
+                                            </Grid>
+                                            <Grid container spacing={2}>
+                                                <Grid item lg={4} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
                                                     <TextField
                                                         id="outlined-required"
                                                         label="Mobile Number"
@@ -107,7 +111,7 @@ export default function Upload_Prescriptions() {
                                                         fullWidth
                                                     />
                                                 </Grid>
-                                                <Grid item lg={6} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
+                                                <Grid item lg={4} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
                                                     <TextField
                                                         id="outlined-required"
                                                         label="Email"
@@ -116,7 +120,9 @@ export default function Upload_Prescriptions() {
                                                         fullWidth
                                                     />
                                                 </Grid>
-                                                <Grid item lg={6} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
+                                            </Grid>
+                                            <Grid container spacing={2}>
+                                                <Grid item lg={4} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
                                                     <TextField
                                                         label="Facility Name"
                                                         value={facility}
@@ -133,7 +139,7 @@ export default function Upload_Prescriptions() {
 
                                                     </TextField>
                                                 </Grid>
-                                                <Grid item lg={6} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
+                                                <Grid item lg={4} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
                                                     <TextField
                                                         id="outlined-required"
                                                         label="File Upload"
@@ -144,7 +150,8 @@ export default function Upload_Prescriptions() {
                                                     />
                                                 </Grid>
                                             </Grid>
-                                            
+
+
                                         </FormGroup>
                                         <Button variant="contained">Submit</Button>
                                     </CardContent>
@@ -158,7 +165,7 @@ export default function Upload_Prescriptions() {
 
 
             </Box>
-            
+
         </>
     )
 }

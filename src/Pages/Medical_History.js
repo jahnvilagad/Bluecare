@@ -45,10 +45,10 @@ function createData(sno, Medicine, Dosage, Frequency, Status) {
 
 export default function Medical_History() {
     const [frequency, setFrequency] = useState();
-    const frequencyInfo = ["Once a Day", "2 times a Day", "3 time a Day"];
+    const frequencyInfo = ["Select","Once a Day", "2 times a Day", "3 time a Day"];
 
     const [staus, setStatus] = useState();
-    const stausInfo = ["Current", "Past"];
+    const stausInfo = ["Select","Current", "Past"];
 
     const [selectedId, setSelectedId] = useState(false);
 
