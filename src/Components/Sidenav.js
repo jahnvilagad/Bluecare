@@ -24,6 +24,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
+import Link from '@mui/material/Link';
 import '../assets/css/custom.module.css';
 import user from '../assets/img/feature/user-img.jpg';
 import { Avatar } from '@mui/material';
@@ -141,7 +142,7 @@ export default function Sidenav() {
             sx={{ marginTop: "2rem" }}
         >
             <Typography sx={{ borderBottom: "1px solid #dddddd", padding: "5px 10px" }}>Patient</Typography>
-            <MenuItem onClick={handleMenuClose}><PersonIcon sx={{ marginRight: "1rem", fontSize: "20px" }} />My Profile</MenuItem>
+            <MenuItem onClick={handleMenuClose}><Link href="Patient_Profile" underline="none" display="flex"><PersonIcon sx={{ marginRight: "1rem", fontSize: "20px" }} />My Profile</Link></MenuItem>
             <MenuItem onClick={handleMenuClose}><LogoutIcon sx={{ marginRight: "1rem", fontSize: "16px" }} />Logout</MenuItem>
         </Menu>
     );
@@ -208,7 +209,7 @@ export default function Sidenav() {
                     <Typography variant="h5" noWrap component="div">
                         Patient Dashboard
                     </Typography>
-                    <Box sx={{ display: { xs: 'none', md: 'flex' },marginLeft: "auto" }}>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' }, marginLeft: "auto" }}>
                         <IconButton
                             size="large"
                             edge="end"
@@ -217,9 +218,12 @@ export default function Sidenav() {
                             aria-haspopup="true"
                             onClick={handleProfileMenuOpen}
                             color="inherit"
+                            sx={{ '&:hover': {
+                                background: 'unset'
+                            },}}
                         >
-                            <Typography sx={{display: 'flex',alignItems: 'center'}}>
-                                <Avatar src={user} alt='user' sx={{marginRight: '5px'}}/> Patient
+                            <Typography sx={{ display: 'flex', alignItems: 'center' }}>
+                                <Avatar src={user} alt='user' sx={{ marginRight: '5px' }} /> Patient
                             </Typography>
 
                         </IconButton>
@@ -292,7 +296,7 @@ export default function Sidenav() {
                         </ListItemButton>
                     </ListItem>
 
-                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/speciality')}}>
+                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/speciality') }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,

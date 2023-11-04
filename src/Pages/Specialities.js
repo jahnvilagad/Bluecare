@@ -8,8 +8,11 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
+import ScienceIcon from '@mui/icons-material/Science';
 import profile_cover from '../assets/img/banner/profile-cover.jpg';
 import classes from '../assets/css/custom.module.css';
+import { useNavigate } from 'react-router-dom';
+import ButtonBase from '@mui/material/ButtonBase';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,10 +20,11 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-  }));
+}));
 
 
 export default function Specialities() {
+    const navigate = useNavigate()
     return (
         <>
             <Box height={30} />
@@ -45,23 +49,52 @@ export default function Specialities() {
                             <CardContent>
                                 <Grid container spacing={2}>
                                     <Grid item xs={2}>
-                                        <Item elevation={true}>Dental</Item>
+                                        <ButtonBase onClick={() => navigate('/')} sx={{ flexDirection: 'column' }}>
+                                            <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
+                                                <ScienceOutlinedIcon className={classes.DashboardIcon} />
+                                            </Box>
+                                            <Item elevation={true} sx={{fontWeight: '600',fontSize: '1rem',marginTop: '1rem'}}>Dental</Item>
+                                        </ButtonBase>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <Item elevation={true}>General Practice</Item>
+                                        <ButtonBase onClick={() => navigate('/general-practice')} sx={{ flexDirection: 'column' }}>
+                                            <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
+                                                <ScienceOutlinedIcon className={classes.DashboardIcon} />
+                                            </Box>
+                                            <Item elevation={true} sx={{fontWeight: '600',fontSize: '1rem',marginTop: '1rem'}}>General Practice</Item>
+                                        </ButtonBase>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <ScienceOutlinedIcon />
-                                        <Item elevation={true}>Laboratory</Item>
+                                        <ButtonBase onClick={() => navigate('/')} sx={{ flexDirection: 'column' }}>
+                                            <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
+                                                <ScienceOutlinedIcon className={classes.DashboardIcon} />
+                                            </Box>
+                                            <Item elevation={true} sx={{fontWeight: '600',fontSize: '1rem',marginTop: '1rem'}}>Laboratory</Item>
+                                        </ButtonBase>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <Item elevation={true}>Nurse</Item>
+                                        <ButtonBase onClick={() => navigate('/')} sx={{ flexDirection: 'column' }}>
+                                            <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
+                                                <ScienceOutlinedIcon className={classes.DashboardIcon} />
+                                            </Box>
+                                            <Item elevation={true} sx={{fontWeight: '600',fontSize: '1rem',marginTop: '1rem'}}>Nurse</Item>
+                                        </ButtonBase>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <Item elevation={true}>OBS-GYN</Item>
+                                        <ButtonBase onClick={() => navigate('/')} sx={{ flexDirection: 'column' }}>
+                                            <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
+                                                <ScienceOutlinedIcon className={classes.DashboardIcon} />
+                                            </Box>
+                                            <Item elevation={true} sx={{fontWeight: '600',fontSize: '1rem',marginTop: '1rem'}}>OBS-GYN</Item>
+                                        </ButtonBase>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <Item elevation={true}>Pediatrician</Item>
+                                        <ButtonBase onClick={() => navigate('/')} sx={{ flexDirection: 'column' }}>
+                                            <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
+                                                <ScienceOutlinedIcon className={classes.DashboardIcon} />
+                                            </Box>
+                                            <Item elevation={true} sx={{fontWeight: '600',fontSize: '1rem',marginTop: '1rem'}}>Pediatrician</Item>
+                                        </ButtonBase>
                                     </Grid>
                                 </Grid>
                             </CardContent>

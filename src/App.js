@@ -8,6 +8,9 @@ import Upload_Prescriptions from './Pages/Upload_Prescriptions';
 import Profile from './Pages/Profile';
 import Medical_History from './Pages/Medical_History';
 import Appointments from './Pages/Appointments';
+import General_Practice from './Pages/General_Practice';
+import Appointment_Request from './Pages/Appointment_Request';
+import Patient_Profile from './Pages/Patient_Profile';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
             <Route path='/profile' element={<Profile />}></Route>
             <Route path='/medial-history' element={<Medical_History/>}></Route>
             <Route path='/appointments' element={<Appointments/>}></Route>
+            <Route path='/general-practice' element={<General_Practice/>}></Route>
+            <Route path='/appointment_request' element={<Appointment_Request/>}></Route>
+            <Route path='/patient_profile' element={<Patient_Profile/>}></Route>
           </Routes>
         </BrowserRouter>
   );

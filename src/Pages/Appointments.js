@@ -102,14 +102,14 @@ export default function Appointments() {
                                             <Grid item lg={4} md={6} sm={12}>
                                                 <LocalizationProvider dateAdapter={AdapterDayjs} >
                                                     <DemoContainer components={['DatePicker']}>
-                                                        <DatePicker label="dd-mm-yyyy" sx={{ width: "100%" }} />
+                                                        <DatePicker label="From Date" sx={{ width: "100%" }} />
                                                     </DemoContainer>
                                                 </LocalizationProvider>
                                             </Grid>
                                             <Grid item lg={4} md={6} sm={12}>
                                                 <LocalizationProvider dateAdapter={AdapterDayjs} >
                                                     <DemoContainer components={['DatePicker']}>
-                                                        <DatePicker label="dd-mm-yyyy" sx={{ width: "100%" }} />
+                                                        <DatePicker label="To Date" sx={{ width: "100%" }} />
                                                     </DemoContainer>
                                                 </LocalizationProvider>
                                             </Grid>
