@@ -402,6 +402,27 @@ export default function Sidenav() {
                         </ListItemButton>
                     </ListItem>
 
+                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/sample-collection-department-mapping') }}>
+                        <ListItemButton
+                            sx={{
+                                minHeight: 48,
+                                justifyContent: open ? 'initial' : 'center',
+                                px: 2.5,
+                            }}
+                        >
+                            <ListItemIcon
+                                sx={{
+                                    minWidth: 0,
+                                    mr: open ? 3 : 'auto',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <DashboardIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Sample Collection Department Mapping" sx={{ opacity: open ? 1 : 0, color: "rgba(0, 0, 0, 0.6)", fontSize: "0.875rem" }} />
+                        </ListItemButton>
+                    </ListItem>
+
                     <ListItem disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             sx={{
