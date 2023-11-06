@@ -33,6 +33,24 @@
     box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15) !important;
     border-radius: 50%;
   }
+  .RadioToolbar{
+    margin-bottom: 1rem;
+  }
+  .RadioToolbar  input[type="radio"]:checked+label {
+    background-color: #333;
+    color:#fff
+  }
+
+  .RadioToolbar label {
+    display: inline-block;
+    background-color: #ddd;
+    padding:2px 10px;
+    cursor: pointer;
+  }
+
+  .css-vqmohf-MuiButtonBase-root-MuiRadio-root {
+    display: none;
+  }
 
 
 

@@ -4,31 +4,34 @@ import Sidenav from '../Components/Sidenav';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { FormGroup, TextField, Typography } from '@mui/material';
+import { FormControl} from '@mui/material';
 import Link from '@mui/material/Link';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import profile_cover from '../assets/img/banner/profile-cover.jpg';
 import classes from '../assets/css/custom.module.css';
 import user_img from '../assets/img/feature/user-img.jpg';
+import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from 'react-router-dom';
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
+const facility = [
+    { label: 'Suzie Turn' },
+    { label: 'Suzie Turn' },
+    { label: 'Suzie Turn' },
+    { label: 'Suzie Turn' },
+];
+
+
 
 
 export default function General_Practice() {
-    const [facility, setFacility] = useState();
-    const facilityInfo = ["Suzie Turn", "Suzie Turn1", "Suzie Turn2"];
+    const [selectedId, setSelectedId] = useState(false);
 
     const navigate = useNavigate()
 
@@ -71,32 +74,37 @@ export default function General_Practice() {
                                                 </Grid>
                                                 <Grid item lg={4} sm={6} xs={12}>
                                                     <Typography sx={{ color: "#2dce89", marginBottom: "2rem" }} display="flex" ><WatchLaterIcon />Available Today</Typography>
-                                                    <TextField
-                                                        label="Facility Name"
-                                                        value={facility}
-                                                        onChange={(e) => setFacility(e.target.value)}
-                                                        select
-                                                        SelectProps={{ native: true }}
-                                                        fullWidth
-                                                        sx={{ marginBottom: "2rem" }}
-                                                    >
-                                                        {facilityInfo.map((facility) => (
-                                                            <option value={facility} key={facility}>
-                                                                {facility}
-                                                            </option>
-                                                        ))}
-                                                    </TextField>
-                                                    <Button variant="contained" fullWidth>Available Time Slot</Button>
+                                                    <Autocomplete
+                                                        disablePortal
+                                                        id="combo-box-demo"
+                                                        options={facility}
+                                                        renderInput={(params) => <TextField {...params} label="Facility Name" />}
+                                                        sx={{ marginBottom: "1rem" }}
+                                                    />
+                                                    <Button variant="contained" fullWidth onClick={() => setSelectedId(prev => !prev)}>Available Time Slot</Button>
                                                 </Grid>
                                             </Grid>
-                                            <Grid container spacing={2}>
-                                                <Grid item lg={12}>
-                                                    <Typography>Morning</Typography>
-                                                    <Button variant="contained" onClick={() => navigate('/appointment_request')}>Next</Button>
-                                                    <Typography>Afternoon</Typography>
-                                                    <Typography>Evening</Typography>
+                                            {selectedId && (
+                                                <Grid container spacing={2} className={classes.RadioToolbar} >
+                                                    <Grid item lg={10}>
+                                                        <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Morning</Typography>
+                                                        <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Afternoon</Typography>
+                                                        <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Evening</Typography>
+                                                        <FormControl>
+                                                            <RadioGroup
+                                                                row
+                                                                aria-labelledby="demo-row-radio-buttons-group-label"
+                                                                name="row-radio-buttons-group"
+                                                            >
+                                                                <FormControlLabel value="6:00 PM" control={<Radio sx={{padding: "5px"}}/>} label="6:00 PM" />
+                                                                <FormControlLabel value="6:10 PM" control={<Radio sx={{padding: "5px"}}/>} label="6:10 PM" />
+                                                                <FormControlLabel value="6:20 PM" control={<Radio sx={{padding: "5px"}} color="success"/>} label="6:20 PM" />
+                                                            </RadioGroup>
+                                                        </FormControl>
+                                                        <Button variant="contained" onClick={() => navigate('/appointment_request')} sx={{ float: "right" }}>Next</Button>
+                                                    </Grid>
                                                 </Grid>
-                                            </Grid>
+                                            )}
                                             <Grid container spacing={2}>
                                                 <Grid item lg={2} sm={6} xs={12}>
                                                     <img src={user_img} alt='User Img' />
@@ -110,21 +118,13 @@ export default function General_Practice() {
                                                 </Grid>
                                                 <Grid item lg={4} sm={6} xs={12}>
                                                     <Typography sx={{ color: "#2dce89", marginBottom: "2rem" }} display="flex" ><WatchLaterIcon />Available Today</Typography>
-                                                    <TextField
-                                                        label="Facility Name"
-                                                        value={facility}
-                                                        onChange={(e) => setFacility(e.target.value)}
-                                                        select
-                                                        SelectProps={{ native: true }}
-                                                        fullWidth
-                                                        sx={{ marginBottom: "2rem" }}
-                                                    >
-                                                        {facilityInfo.map((facility) => (
-                                                            <option value={facility} key={facility}>
-                                                                {facility}
-                                                            </option>
-                                                        ))}
-                                                    </TextField>
+                                                    <Autocomplete
+                                                        disablePortal
+                                                        id="combo-box-demo"
+                                                        options={facility}
+                                                        renderInput={(params) => <TextField {...params} label="Facility Name" />}
+                                                        sx={{ marginBottom: "1rem" }}
+                                                    />
                                                     <Button variant="contained" fullWidth>Available Time Slot</Button>
                                                 </Grid>
                                             </Grid>

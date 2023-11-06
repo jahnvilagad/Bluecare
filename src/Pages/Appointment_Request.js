@@ -103,7 +103,6 @@ export default function Appointment_Request() {
                                                             <TextField
                                                                 id="outlined-required"
                                                                 label="First Name"
-                                                                focused
                                                                 variant="outlined"
                                                                 fullWidth
                                                             />
@@ -112,7 +111,6 @@ export default function Appointment_Request() {
                                                             <TextField
                                                                 id="outlined-required"
                                                                 label="Last Name"
-                                                                focused
                                                                 variant="outlined"
                                                                 fullWidth
                                                             />
@@ -145,7 +143,6 @@ export default function Appointment_Request() {
                                                             <TextField
                                                                 id="outlined-required"
                                                                 label="Mobile Number"
-                                                                focused
                                                                 variant="outlined"
                                                                 fullWidth
                                                             />
@@ -154,7 +151,6 @@ export default function Appointment_Request() {
                                                             <TextField
                                                                 id="outlined-required"
                                                                 label="Email"
-                                                                focused
                                                                 variant="outlined"
                                                                 fullWidth
                                                             />
@@ -165,7 +161,6 @@ export default function Appointment_Request() {
                                                             <TextField
                                                                 id="outlined-required"
                                                                 label="Problem"
-                                                                focused
                                                                 variant="outlined"
                                                                 fullWidth
                                                             />

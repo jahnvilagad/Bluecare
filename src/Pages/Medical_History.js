@@ -22,6 +22,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
 import { FormControl, FormGroup, TextField, Typography } from '@mui/material';
+import Autocomplete from '@mui/material/Autocomplete';
 import profile_cover from '../assets/img/banner/profile-cover.jpg';
 import classes from '../assets/css/custom.module.css';
 
@@ -35,21 +36,27 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function createData(sno, Medicine, Dosage, Frequency, Status) {
     return { sno, Medicine, Dosage, Frequency, Status };
-  }
-  
-  const rows = [
-    createData(1, "Terbinafine 1% topical cream", "Test", "once a Day","Test"),
-  ];
+}
 
- 
+const rows = [
+    createData(1, "Terbinafine 1% topical cream", "Test", "once a Day", "Test"),
+];
+
+const frequency = [
+    { label: 'Once a Day'},
+    { label: '2 Times a Day'},
+    { label: '3 Times a Day'},
+    { label: '4 Times a Day'},
+];
+
+const status = [
+    { label: 'Current'},
+    { label: 'Past'},
+];
+
+
 
 export default function Medical_History() {
-    const [frequency, setFrequency] = useState();
-    const frequencyInfo = ["Select","Once a Day", "2 times a Day", "3 time a Day"];
-
-    const [staus, setStatus] = useState();
-    const stausInfo = ["Select","Current", "Past"];
-
     const [selectedId, setSelectedId] = useState(false);
 
 
@@ -89,113 +96,93 @@ export default function Medical_History() {
                                                     aria-labelledby="demo-row-radio-buttons-group-label"
                                                     name="row-radio-buttons-group"
                                                 >
-                                                    <FormControlLabel value="Yes" control={<Radio />} label="Yes" onClick={() => setSelectedId(prev => !prev)}/>
-                                                    <FormControlLabel value="No" control={<Radio />} label="No" onClick={() => setSelectedId(prev => !prev)}/>
+                                                    <FormControlLabel value="Yes" control={<Radio />} label="Yes" onClick={() => setSelectedId(prev => !prev)} />
+                                                    <FormControlLabel value="No" control={<Radio />} label="No" onClick={() => setSelectedId(prev => !prev)} />
                                                 </RadioGroup>
                                             </FormControl>
                                         </Grid>
                                     </Grid>
                                     {selectedId && (
                                         <Box>
-                                                <Grid container spacing={2} sx={{ marginBottom: "1rem" }}>
-                                                    <Grid item xs={12}>
-                                                        <Typography>Add new medication</Typography>
-                                                    </Grid>
+                                            <Grid container spacing={2} sx={{ marginBottom: "1rem" }}>
+                                                <Grid item xs={12}>
+                                                    <Typography>Add new medication</Typography>
                                                 </Grid>
-                                                <Grid container spacing={2} sx={{ marginBottom: "1rem" }}>
-                                                    <Grid item lg={6}>
-                                                        <TextField
-                                                            id="outlined-required"
-                                                            label="Medicine"
-                                                            focused
-                                                            variant="outlined"
-                                                            fullWidth
-                                                        />
-                                                    </Grid>
-                                                    <Grid item lg={6}>
-                                                        <TextField
-                                                            id="outlined-required"
-                                                            label="Dosage"
-                                                            focused
-                                                            variant="outlined"
-                                                            fullWidth
-                                                        />
-                                                    </Grid>
+                                            </Grid>
+                                            <Grid container spacing={2} sx={{ marginBottom: "1rem" }}>
+                                                <Grid item lg={6}>
+                                                    <TextField
+                                                        id="outlined-required"
+                                                        label="Medicine"
+                                                        variant="outlined"
+                                                        fullWidth
+                                                    />
                                                 </Grid>
-                                                <Grid container spacing={2} sx={{ marginBottom: "1rem" }}>
-                                                    <Grid item lg={6}>
-                                                        <TextField
-                                                            label="Frequency"
-                                                            value={frequency}
-                                                            onChange={(e) => setFrequency(e.target.value)}
-                                                            select
-                                                            SelectProps={{ native: true }}
-                                                            fullWidth
-                                                        >
-                                                            {frequencyInfo.map((frequency) => (
-                                                                <option value={frequency} key={frequency}>
-                                                                    {frequency}
-                                                                </option>
-                                                            ))}
-
-                                                        </TextField>
-                                                    </Grid>
-                                                    <Grid item lg={6}>
-                                                        <TextField
-                                                            label="Status"
-                                                            value={staus}
-                                                            onChange={(e) => setStatus(e.target.value)}
-                                                            select
-                                                            SelectProps={{ native: true }}
-                                                            fullWidth
-                                                        >
-                                                            {stausInfo.map((staus) => (
-                                                                <option value={staus} key={staus}>
-                                                                    {staus}
-                                                                </option>
-                                                            ))}
-
-                                                        </TextField>
-                                                    </Grid>
+                                                <Grid item lg={6}>
+                                                    <TextField
+                                                        id="outlined-required"
+                                                        label="Dosage"
+                                                        variant="outlined"
+                                                        fullWidth
+                                                    />
                                                 </Grid>
-                                                <Grid container spacing={2} sx={{ marginBottom: "1rem" }}>
-                                                    <Grid item lg={6}>
-                                                        <Button variant="contained">Add Medication</Button>
-                                                    </Grid>
+                                            </Grid>
+                                            <Grid container spacing={2} sx={{ marginBottom: "1rem" }}>
+                                                <Grid item lg={6}>
+                                                    <Autocomplete
+                                                        disablePortal
+                                                        id="combo-box-demo"
+                                                        options={frequency}
+                                                        renderInput={(params) => <TextField {...params} label="Frequency" />}
+                                                    />
                                                 </Grid>
-                                                <Grid container spacing={2} sx={{ marginBottom: "1rem" }}>
-                                                    <Grid item lg={12}>
-                                                        <TableContainer>
-                                                            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                                                                <TableHead>
-                                                                    <TableRow>
-                                                                        <TableCell className={classes.TableBg}>#</TableCell>
-                                                                        <TableCell className={classes.TableBg}>Medicine</TableCell>
-                                                                        <TableCell className={classes.TableBg}>Dosage</TableCell>
-                                                                        <TableCell className={classes.TableBg}>Frequency</TableCell>
-                                                                        <TableCell className={classes.TableBg}>Status</TableCell>
+                                                <Grid item lg={6}>
+                                                <Autocomplete
+                                                        disablePortal
+                                                        id="combo-box-demo"
+                                                        options={status}
+                                                        renderInput={(params) => <TextField {...params} label="Status" />}
+                                                    />
+                                                </Grid>
+                                            </Grid>
+                                            <Grid container spacing={2} sx={{ marginBottom: "1rem" }}>
+                                                <Grid item lg={6}>
+                                                    <Button variant="contained">Add Medication</Button>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid container spacing={2} sx={{ marginBottom: "1rem" }}>
+                                                <Grid item lg={12}>
+                                                    <TableContainer>
+                                                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                                                            <TableHead>
+                                                                <TableRow>
+                                                                    <TableCell className={classes.TableBg}>#</TableCell>
+                                                                    <TableCell className={classes.TableBg}>Medicine</TableCell>
+                                                                    <TableCell className={classes.TableBg}>Dosage</TableCell>
+                                                                    <TableCell className={classes.TableBg}>Frequency</TableCell>
+                                                                    <TableCell className={classes.TableBg}>Status</TableCell>
+                                                                </TableRow>
+                                                            </TableHead>
+                                                            <TableBody>
+                                                                {rows.map((row) => (
+                                                                    <TableRow
+                                                                        key={row.sno}
+                                                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                                                    >
+                                                                        <TableCell component="th" scope="row">
+                                                                            {row.sno}
+                                                                        </TableCell>
+                                                                        <TableCell>{row.Medicine}</TableCell>
+                                                                        <TableCell>{row.Dosage}</TableCell>
+                                                                        <TableCell>{row.Frequency}</TableCell>
+                                                                        <TableCell>{row.Status}</TableCell>
                                                                     </TableRow>
-                                                                </TableHead>
-                                                                <TableBody>
-                                                                    {rows.map((row) => (
-                                                                        <TableRow
-                                                                            key={row.sno}
-                                                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                                                        >
-                                                                            <TableCell component="th" scope="row">
-                                                                                {row.sno}
-                                                                            </TableCell>
-                                                                            <TableCell>{row.Medicine}</TableCell>
-                                                                            <TableCell>{row.Dosage}</TableCell>
-                                                                            <TableCell>{row.Frequency}</TableCell>
-                                                                            <TableCell>{row.Status}</TableCell>
-                                                                        </TableRow>
-                                                                    ))}
-                                                                </TableBody>
-                                                            </Table>
-                                                        </TableContainer>
-                                                    </Grid>
+                                                                ))}
+                                                            </TableBody>
+                                                        </Table>
+                                                    </TableContainer>
                                                 </Grid>
+                                            </Grid>
                                         </Box>
                                     )}
 
@@ -287,7 +274,7 @@ export default function Medical_History() {
                                                 rows={6}
                                                 variant="outlined"
                                                 fullWidth
-                                                sx={{marginTop: "1rem"}}
+                                                sx={{ marginTop: "1rem" }}
                                             />
                                         </Grid>
                                     </Grid>

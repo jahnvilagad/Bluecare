@@ -72,7 +72,6 @@ export default function Patient_Profile() {
                                                         <TextField
                                                             id="outlined-required"
                                                             label="Username"
-                                                            focused
                                                             variant="outlined"
                                                             fullWidth
                                                         />
@@ -81,7 +80,6 @@ export default function Patient_Profile() {
                                                         <TextField
                                                             id="outlined-required"
                                                             label="Email address"
-                                                            focused
                                                             variant="outlined"
                                                             fullWidth
                                                         />
@@ -92,7 +90,6 @@ export default function Patient_Profile() {
                                                         <TextField
                                                             id="outlined-required"
                                                             label="First name"
-                                                            focused
                                                             variant="outlined"
                                                             fullWidth
                                                         />
@@ -101,7 +98,6 @@ export default function Patient_Profile() {
                                                         <TextField
                                                             id="outlined-required"
                                                             label="Last name"
-                                                            focused
                                                             variant="outlined"
                                                             fullWidth
                                                         />
@@ -113,7 +109,6 @@ export default function Patient_Profile() {
                                                         <TextField
                                                             id="outlined-required"
                                                             label="Address"
-                                                            focused
                                                             variant="outlined"
                                                             fullWidth
                                                         />
@@ -124,7 +119,6 @@ export default function Patient_Profile() {
                                                         <TextField
                                                             id="outlined-required"
                                                             label="City"
-                                                            focused
                                                             variant="outlined"
                                                             fullWidth
                                                         />
@@ -133,7 +127,6 @@ export default function Patient_Profile() {
                                                         <TextField
                                                             id="outlined-required"
                                                             label="Country"
-                                                            focused
                                                             variant="outlined"
                                                             fullWidth
                                                         />
@@ -142,7 +135,6 @@ export default function Patient_Profile() {
                                                         <TextField
                                                             id="outlined-required"
                                                             label="Postal code"
-                                                            focused
                                                             variant="outlined"
                                                             fullWidth
                                                         />

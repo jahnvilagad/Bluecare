@@ -17,6 +17,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Button from '@mui/material/Button';
 import { FormControl, FormGroup, TextField, Typography } from '@mui/material';
+import Autocomplete from '@mui/material/Autocomplete';
 import profile_cover from '../assets/img/banner/profile-cover.jpg';
 import classes from '../assets/css/custom.module.css';
 
@@ -28,12 +29,15 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
+const facility = [
+    { label: 'Suzie Turn'},
+    { label: 'Suzie Turn'},
+    { label: 'Suzie Turn'},
+    { label: 'Suzie Turn'},
+];
+
 
 export default function Upload_Prescriptions() {
-    const [facility, setFacility] = useState();
-    const facilityInfo = ["Suzie Turn", "Suzie Turn1", "Suzie Turn2"];
-
-
     return (
         <>
             <Box height={30} />
@@ -64,7 +68,6 @@ export default function Upload_Prescriptions() {
                                                     <TextField
                                                         id="outlined-required"
                                                         label="First Name"
-                                                        focused
                                                         variant="outlined"
                                                         fullWidth
                                                     />
@@ -73,7 +76,7 @@ export default function Upload_Prescriptions() {
                                                     <TextField
                                                         id="outlined-required"
                                                         label="Last Name"
-                                                        focused
+
                                                         variant="outlined"
                                                         fullWidth
                                                     />
@@ -106,7 +109,6 @@ export default function Upload_Prescriptions() {
                                                     <TextField
                                                         id="outlined-required"
                                                         label="Mobile Number"
-                                                        focused
                                                         variant="outlined"
                                                         fullWidth
                                                     />
@@ -115,7 +117,6 @@ export default function Upload_Prescriptions() {
                                                     <TextField
                                                         id="outlined-required"
                                                         label="Email"
-                                                        focused
                                                         variant="outlined"
                                                         fullWidth
                                                     />
@@ -123,21 +124,12 @@ export default function Upload_Prescriptions() {
                                             </Grid>
                                             <Grid container spacing={2}>
                                                 <Grid item lg={4} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
-                                                    <TextField
-                                                        label="Facility Name"
-                                                        value={facility}
-                                                        onChange={(e) => setFacility(e.target.value)}
-                                                        select
-                                                        SelectProps={{ native: true }}
-                                                        fullWidth
-                                                    >
-                                                        {facilityInfo.map((facility) => (
-                                                            <option value={facility} key={facility}>
-                                                                {facility}
-                                                            </option>
-                                                        ))}
-
-                                                    </TextField>
+                                                    <Autocomplete
+                                                        disablePortal
+                                                        id="combo-box-demo"
+                                                        options={facility}
+                                                        renderInput={(params) => <TextField {...params} label="Facility Name" />}
+                                                    />
                                                 </Grid>
                                                 <Grid item lg={4} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
                                                     <TextField
