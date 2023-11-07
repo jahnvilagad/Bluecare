@@ -12,6 +12,7 @@ import General_Practice from './Pages/General_Practice';
 import Appointment_Request from './Pages/Appointment_Request';
 import Patient_Profile from './Pages/Patient_Profile';
 import Sample_Collection_Department_Mapping from './Pages/Sample_Collection_Department_Mapping';
+import Set_value_master from './Pages/Set_value_master';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path='/appointment_request' element={<Appointment_Request/>}></Route>
             <Route path='/patient_profile' element={<Patient_Profile/>}></Route>
             <Route path='/sample-collection-department-mapping' element={<Sample_Collection_Department_Mapping/>}></Route>
+            <Route path='/set-value-master' element={<Set_value_master/>}></Route>
           </Routes>
         </BrowserRouter>
   );

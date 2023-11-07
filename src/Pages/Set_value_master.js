@@ -18,25 +18,27 @@ import { FormGroup, TextField, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import Autocomplete from '@mui/material/Autocomplete';
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import profile_cover from '../assets/img/banner/profile-cover.jpg';
 import classes from '../assets/css/custom.module.css';
 
 
-const location = [
-    { label: 'Suzie Turn' },
-    { label: 'Suzie Turn' },
-    { label: 'Suzie Turn' },
-    { label: 'Suzie Turn' },
+const hospital = [
+    { label: 'FamilyCare Medical Services' },
+    { label: 'FamilyCare Medical Services' },
+    { label: 'FamilyCare Medical Services' },
+    { label: 'FamilyCare Medical Services' },
 ];
 
-const center = [
-    { label: 'Radiology' },
+const setname = [
+    { label: 'Blood Group Abo Rhs' },
     { label: 'MRI' },
     { label: 'X-Ray' },
     { label: 'Ultra Sound' },
 ]
 
-const StyledTableCell = styled(TableCell)(({ }) => ({
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: '#F6F9FC',
         color: 'rgba(0, 0, 0, 0.87)',
@@ -46,7 +48,7 @@ const StyledTableCell = styled(TableCell)(({ }) => ({
     },
 }));
 
-const StyledTableRow = styled(TableRow)(({ }) => ({
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
     // hide last border
     '&:last-child td, &:last-child th': {
         border: 0,
@@ -54,13 +56,15 @@ const StyledTableRow = styled(TableRow)(({ }) => ({
 }));
 
 
-export default function Sample_Collection_Department_Mapping() {
+export default function Set_value_master() {
 
     const [data, setData] = useState([
-        { id: 1, department: 'Administratio',subdepartment: 'Document' },
-        { id: 2, department: 'Clinical Pathology',subdepartment: 'Clinical Pathology'},
-        { id: 3, department: 'Imaging',subdepartment: 'X-Ray' },
-        { id: 4, department: 'Haematology & Blood Transfusion',subdepartment: 'Day Care' },
+        { id: 1, value_name: '(+1) acid fast bacili seen' },
+        { id: 2, value_name: '>1:1024' },
+        { id: 3, value_name: '>50' },
+        { id: 4, value_name: '>50/HPF' },
+        { id: 5, value_name: 'A Negative' },
+        { id: 6, value_name: 'A Positive' },
     ]);
 
 
@@ -79,7 +83,29 @@ export default function Sample_Collection_Department_Mapping() {
         setSelectedData(selectedData.filter((d) => d.id !== row.id));
         // Add the selected item back to the 'data' array
         setData([...data, row]);
-      };
+    };
+
+    const moveItemUp = (row) => {
+        const currentIndex = selectedData.findIndex((d) => d.id === row.id);
+        if (currentIndex > 0) {
+            const updatedData = [...selectedData];
+            const temp = updatedData[currentIndex];
+            updatedData[currentIndex] = updatedData[currentIndex - 1];
+            updatedData[currentIndex - 1] = temp;
+            setSelectedData(updatedData);
+        }
+    };
+
+    const moveItemDown = (row) => {
+        const currentIndex = selectedData.findIndex((d) => d.id === row.id);
+        if (currentIndex < selectedData.length - 1) {
+            const updatedData = [...selectedData];
+            const temp = updatedData[currentIndex];
+            updatedData[currentIndex] = updatedData[currentIndex + 1];
+            updatedData[currentIndex + 1] = temp;
+            setSelectedData(updatedData);
+        }
+    };
 
     return (
         <>
@@ -97,7 +123,7 @@ export default function Sample_Collection_Department_Mapping() {
                         <Typography sx={{
                             position: "absolute", top: "50%",
                             transform: "translateY(-50%)", p: 3, fontSize: "2rem", zIndex: 1, color: "#fff", fontWeight: "600"
-                        }}>Sample Collection Department Mapping</Typography>
+                        }}>Set value Master</Typography>
                     </Box>
 
                     <Box position="relative">
@@ -111,8 +137,8 @@ export default function Sample_Collection_Department_Mapping() {
                                                     <Autocomplete
                                                         disablePortal
                                                         id="combo-box-demo"
-                                                        options={location}
-                                                        renderInput={(params) => <TextField {...params} label="Location Name" />}
+                                                        options={hospital}
+                                                        renderInput={(params) => <TextField {...params} label="Hospital" />}
                                                     />
 
                                                     <Box height={30}></Box>
@@ -122,8 +148,7 @@ export default function Sample_Collection_Department_Mapping() {
                                                             <TableHead>
                                                                 <TableRow>
                                                                     <StyledTableCell>SN</StyledTableCell>
-                                                                    <StyledTableCell>Calories</StyledTableCell>
-                                                                    <StyledTableCell>Sub Department</StyledTableCell>
+                                                                    <StyledTableCell>Value Name</StyledTableCell>
                                                                     <StyledTableCell>ADD</StyledTableCell>
                                                                 </TableRow>
                                                             </TableHead>
@@ -133,8 +158,7 @@ export default function Sample_Collection_Department_Mapping() {
                                                                         <StyledTableCell component="th" scope="row">
                                                                             {row.id}
                                                                         </StyledTableCell>
-                                                                        <StyledTableCell>{row.department}</StyledTableCell>
-                                                                        <StyledTableCell>{row.subdepartment}</StyledTableCell>
+                                                                        <StyledTableCell>{row.value_name}</StyledTableCell>
                                                                         <StyledTableCell>
                                                                             <Button variant="contained" sx={{ minWidth: '35px', padding: '6px 8px' }} onClick={() => handleTransferClick(row)}>
                                                                                 <AddIcon />
@@ -148,20 +172,17 @@ export default function Sample_Collection_Department_Mapping() {
                                                 </Grid>
 
                                                 <Grid item lg={6} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
-                                                    <Box sx={{display: 'flex'}}>
-                                                    <Autocomplete
+                                                    <Box sx={{ display: 'flex' }}>
+                                                        <Autocomplete
                                                             disablePortal
                                                             id="combo-box-demo"
-                                                            options={center}
-                                                            renderInput={(params) => <TextField {...params} label="Center Name"/>}
+                                                            options={setname}
+                                                            renderInput={(params) => <TextField {...params} label="Set Name" />}
                                                             fullWidth
-                                                            sx={{marginRight: '1rem'}}
+                                                            sx={{ marginRight: '1rem' }}
                                                         />
-                                                        <Button variant="contained">
-                                                            <AddIcon />
-                                                        </Button>
                                                     </Box>
-                                                        
+
 
                                                     <Box height={30}></Box>
 
@@ -170,7 +191,9 @@ export default function Sample_Collection_Department_Mapping() {
                                                             <TableHead>
                                                                 <TableRow>
                                                                     <StyledTableCell>SN</StyledTableCell>
-                                                                    <StyledTableCell sx={{ width: '82%' }}>Sub Department</StyledTableCell>
+                                                                    <StyledTableCell sx={{ width: '82%' }}>Value Name</StyledTableCell>
+                                                                    <StyledTableCell>UP</StyledTableCell>
+                                                                    <StyledTableCell>Down</StyledTableCell>
                                                                     <StyledTableCell></StyledTableCell>
                                                                 </TableRow>
                                                             </TableHead>
@@ -180,8 +203,10 @@ export default function Sample_Collection_Department_Mapping() {
                                                                         <StyledTableCell component="th" scope="row">
                                                                             {row.id}
                                                                         </StyledTableCell>
-                                                                        <StyledTableCell>{row.subdepartment}</StyledTableCell>
-                                                                        <StyledTableCell sx={{ color: 'red', cursor: 'pointer' }}><CloseIcon onClick={() => handleDeleteClick(row)}/></StyledTableCell>
+                                                                        <StyledTableCell>{row.value_name}</StyledTableCell>
+                                                                        <StyledTableCell><Button variant="contained" sx={{ minWidth: '35px', padding: '6px 8px' }} onClick={() => moveItemUp(row)} disabled={selectedData.indexOf(row) === 0}><KeyboardDoubleArrowUpIcon /></Button></StyledTableCell>
+                                                                        <StyledTableCell><Button variant="contained" sx={{ minWidth: '35px', padding: '6px 8px' }} onClick={() => moveItemDown(row)} disabled={selectedData.indexOf(row) === selectedData.length - 1}><KeyboardDoubleArrowDownIcon /></Button></StyledTableCell>
+                                                                        <StyledTableCell sx={{ color: 'red', cursor: 'pointer' }}><CloseIcon onClick={() => handleDeleteClick(row)} /></StyledTableCell>
                                                                     </StyledTableRow>
                                                                 ))}
                                                             </TableBody>
