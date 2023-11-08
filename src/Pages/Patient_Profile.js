@@ -14,18 +14,9 @@ import profile_cover from '../assets/img/banner/profile-cover.jpg';
 import patient_profile from '../assets/img/feature/patient-profile-page.jpg';
 import classes from '../assets/css/custom.module.css';
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
 
 
 export default function Patient_Profile() {
-    const [facility, setFacility] = useState();
-    const facilityInfo = ["Suzie Turn", "Suzie Turn1", "Suzie Turn2"];
 
 
     return (
@@ -49,7 +40,11 @@ export default function Patient_Profile() {
                                 fontSize: "2rem", color: "#fff", fontWeight: "600"
                             }}>PatientUser</Typography>
 
-                            <Button variant="contained" sx={{ backgroundColor: "#fff", color: "#5e72e4", fontWeight: "600" }}>Edit Profile</Button>
+                            <Button variant="contained" sx={{
+                                backgroundColor: "#fff", color: "#5e72e4", fontWeight: "600", '&:hover': {
+                                background: '#fff'
+                                }
+                            }}>Edit Profile</Button>
                         </Box>
 
                     </Box>
@@ -170,8 +165,8 @@ export default function Patient_Profile() {
                                         image={patient_profile}
                                         title="Patient Profile"
                                     />
-                                    <CardContent sx={{textAlign: "center"}}>
-                                        <Box sx={{display:"flex",alignItems: "center" , justifyContent: "space-between"}}>
+                                    <CardContent sx={{ textAlign: "center" }}>
+                                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                                             <Button variant="contained">Connect</Button>
                                             <Button variant="contained">Message</Button>
                                         </Box>

@@ -30,6 +30,7 @@ import user from '../assets/img/feature/user-img.jpg';
 import { Avatar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
+
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
