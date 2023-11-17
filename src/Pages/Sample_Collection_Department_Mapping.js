@@ -22,42 +22,42 @@ import profile_cover from '../assets/img/banner/profile-cover.jpg';
 import classes from '../assets/css/custom.module.css';
 
 
-const location = [
-    { id: 1, name: 'Suzie Turn1', valueId: 1 },
-    { id: 2, name: 'Suzie Turn2', valueId: 2 },
-    { id: 3, name: 'Suzie Turn3', valueId: 1 },
-    { id: 4, name: 'Suzie Turn4', valueId: 3 },
-];
+// const location = [
+//     { id: 1, name: 'Suzie Turn1', valueId: 1 },
+//     { id: 2, name: 'Suzie Turn2', valueId: 2 },
+//     { id: 3, name: 'Suzie Turn3', valueId: 1 },
+//     { id: 4, name: 'Suzie Turn4', valueId: 3 },
+// ];
 
 const location_name = [
-    { id: 1, valueId: 1, department: 'Administration', subdepartment: 'Document', dataValue: 'Value 1' },
-    { id: 2, valueId: 2, department: 'Clinical Pathology', subdepartment: 'Clinical Pathology', dataValue: 'Value 2' },
-    { id: 3, valueId: 2, department: 'Clinical Pathology', subdepartment: 'Biochemistry', dataValue: 'Value 2' },
-    { id: 4, valueId: 1, department: 'Imaging', subdepartment: 'X-Ray', dataValue: 'Value 1' },
-    { id: 5, valueId: 1, department: 'Imaging', subdepartment: 'Utrasound', dataValue: 'Value 1' },
-    { id: 6, valueId: 1, department: 'Imaging', subdepartment: 'Mammogram', dataValue: 'Value 1' },
-    { id: 7, valueId: 3, department: 'Haematology & Blood Transfusion', subdepartment: 'Day Care', dataValue: 'Value 3' },
-    { id: 8, valueId: 3, department: 'Haematology & Blood Transfusion', subdepartment: 'Component', dataValue: 'Value 3' },
-    { id: 9, valueId: 3, department: 'Haematology & Blood Transfusion', subdepartment: 'doner unit', dataValue: 'Value 3' },
+    { id: 1, name: 'Suzie Turn1', valueId: 1, department: 'Administration', subdepartment: 'Document', dataValue: 'Value 1' },
+    { id: 2, name: 'Suzie Turn2', valueId: 2, department: 'Clinical Pathology', subdepartment: 'Clinical Pathology', dataValue: 'Value 2' },
+    { id: 3, name: 'Suzie Turn2', valueId: 2, department: 'Clinical Pathology', subdepartment: 'Biochemistry', dataValue: 'Value 2' },
+    { id: 4, name: 'Suzie Turn1', valueId: 1, department: 'Imaging', subdepartment: 'X-Ray', dataValue: 'Value 1' },
+    { id: 5, name: 'Suzie Turn1', valueId: 1, department: 'Imaging', subdepartment: 'Utrasound', dataValue: 'Value 1' },
+    { id: 6, name: 'Suzie Turn1', valueId: 1, department: 'Imaging', subdepartment: 'Mammogram', dataValue: 'Value 1' },
+    { id: 7, name: 'Suzie Turn4', valueId: 3, department: 'Haematology & Blood Transfusion', subdepartment: 'Day Care', dataValue: 'Value 3' },
+    { id: 8, name: 'Suzie Turn4', valueId: 3, department: 'Haematology & Blood Transfusion', subdepartment: 'Component', dataValue: 'Value 3' },
+    { id: 9, name: 'Suzie Turn4', valueId: 3, department: 'Haematology & Blood Transfusion', subdepartment: 'doner unit', dataValue: 'Value 3' },
 ];
 
-const center = [
-    { id: 5, name: 'Radiology', valueId: 4 },
-    { id: 6, name: 'MRI', valueId: 5 },
-    { id: 7, name: 'X-Ray', valueId: 6 },
-    { id: 8, name: 'Ultra Sound', valueId: 7 },
-];
+// const center = [
+//     { id: 5, name: 'Radiology', valueId: 4 },
+//     { id: 6, name: 'MRI', valueId: 5 },
+//     { id: 7, name: 'X-Ray', valueId: 6 },
+//     { id: 8, name: 'Ultra Sound', valueId: 7 },
+// ];
 
 const center_data = [
-    { id: 10, valueId: 5, subdepartment: 'Document', dataValue: 'Value 5' },
-    { id: 11, valueId: 6, subdepartment: 'Clinical Pathology', dataValue: 'Value 6' },
-    { id: 12, valueId: 7, subdepartment: 'Biochemistry', dataValue: 'Value 7' },
-    { id: 13, valueId: 4, subdepartment: 'X-Ray', dataValue: 'Value 4' },
-    { id: 14, valueId: 4, subdepartment: 'Utrasound', dataValue: 'Value 4' },
-    { id: 15, valueId: 4, subdepartment: 'Mammogram', dataValue: 'Value 4' },
-    { id: 16, valueId: 5, subdepartment: 'Day Care', dataValue: 'Value 5' },
-    { id: 17, valueId: 6, subdepartment: 'Component', dataValue: 'Value 6' },
-    { id: 18, valueId: 4, subdepartment: 'MRI', dataValue: 'Value 4' },
+    { id: 10, name: 'MRI', valueId: 5, subdepartment: 'Document', dataValue: 'Value 5' },
+    { id: 11, name: 'X-Ray', valueId: 6, subdepartment: 'Clinical Pathology', dataValue: 'Value 6' },
+    { id: 12, name: 'Ultra Sound', valueId: 7, subdepartment: 'Biochemistry', dataValue: 'Value 7' },
+    { id: 13, name: 'Radiology', valueId: 4, subdepartment: 'X-Ray', dataValue: 'Value 4' },
+    { id: 14, name: 'Radiology', valueId: 4, subdepartment: 'Utrasound', dataValue: 'Value 4' },
+    { id: 15, name: 'Radiology', valueId: 4, subdepartment: 'Mammogram', dataValue: 'Value 4' },
+    { id: 16, name: 'MRI', valueId: 5, subdepartment: 'Day Care', dataValue: 'Value 5' },
+    { id: 17, name: 'X-Ray', valueId: 6, subdepartment: 'Component', dataValue: 'Value 6' },
+    { id: 18, name: 'Radiology', valueId: 4, subdepartment: 'MRI', dataValue: 'Value 4' },
 ];
 
 
@@ -80,11 +80,8 @@ const StyledTableRow = styled(TableRow)(({ }) => ({
 
 
 export default function Sample_Collection_Department_Mapping() {
-
-    const [filteredLocation, setFilteredLocation] = useState(null);
-    const [filteredCenter, setFilteredCenter] = useState(null);
-    const [data1, setData1] = useState(location_name);
-    const [data2, setData2] = useState(center_data);
+    const [data1, setData1] = useState([]);
+    const [data2, setData2] = useState([]);
 
 
     // const [data, setData] = useState(location);
@@ -106,20 +103,14 @@ export default function Sample_Collection_Department_Mapping() {
     //     (row) => selectedCenter && row.valueId === selectedCenter.valueId
     // );
 
-    const handleTransferClick = () => {
-        if (filteredLocation) {
-            const movedRow = data1.find((row) => row.valueId === filteredLocation.valueId);
-            setData2([...data2, movedRow]);
-            setData1(data1.filter((row) => row.valueId !== filteredLocation.valueId));
-          }
+    const handleTransferClick = (rows) => {
+        setData2([...data2, ...rows]);
+        setData1(data1.filter((data) => !rows.some((row) => row.id === data.id)));
     };
 
-    const handleDeleteClick = () => {
-        if (filteredCenter) {
-            const movedRow = data2.find((row) => row.valueId === filteredCenter.valueId);
-            setData1([...data1, movedRow]);
-            setData2(data2.filter((row) => row.valueId !== filteredCenter.valueId));
-          }
+    const handleDeleteClick = (rows) => {
+        setData1([...data1, ...rows]);
+        setData2(data2.filter((data) => !rows.some((row) => row.id === data.id)));
     };
 
     // const [data, setData] = useState([
@@ -175,10 +166,13 @@ export default function Sample_Collection_Department_Mapping() {
                                                     <Autocomplete
                                                         disablePortal
                                                         id="combo-box-demo"
-                                                        options={location}
+                                                        options={location_name}
                                                         getOptionLabel={(option) => option.name}
                                                         onChange={(event, newValue) => {
-                                                            setFilteredLocation(newValue);
+                                                            if (newValue) {
+                                                                const selectedRows = location_name.filter((row) => row.valueId === newValue.valueId);
+                                                                handleDeleteClick(selectedRows);
+                                                              }
                                                         }}
                                                         renderInput={(params) => <TextField {...params} label="Location Name" />}
                                                     />
@@ -196,23 +190,21 @@ export default function Sample_Collection_Department_Mapping() {
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
-                                                                {filteredLocation && (
-                                                                    data1.map((row) => (
-                                                                        <StyledTableRow key={row.id}>
-                                                                            <StyledTableCell component="th" scope="row">
-                                                                                {row.id}
-                                                                            </StyledTableCell>
-                                                                            <StyledTableCell>{row.department}</StyledTableCell>
-                                                                            <StyledTableCell>{row.subdepartment}</StyledTableCell>
-                                                                            <StyledTableCell>
-                                                                                <Button variant="contained" sx={{ minWidth: '35px', padding: '6px 8px' }}
-                                                                                    onClick={() => handleTransferClick()}>
-                                                                                    <AddIcon />
-                                                                                </Button>
-                                                                            </StyledTableCell>
-                                                                        </StyledTableRow>
-                                                                    ))
-                                                                )}
+                                                                {data1.map((row) => (
+                                                                    <StyledTableRow key={row.id}>
+                                                                        <StyledTableCell component="th" scope="row">
+                                                                            {row.id}
+                                                                        </StyledTableCell>
+                                                                        <StyledTableCell>{row.department}</StyledTableCell>
+                                                                        <StyledTableCell>{row.subdepartment}</StyledTableCell>
+                                                                        <StyledTableCell>
+                                                                            <Button variant="contained" sx={{ minWidth: '35px', padding: '6px 8px' }}
+                                                                                onClick={() => handleTransferClick([row])}>
+                                                                                <AddIcon />
+                                                                            </Button>
+                                                                        </StyledTableCell>
+                                                                    </StyledTableRow>
+                                                                ))}
                                                             </TableBody>
                                                         </Table>
                                                     </TableContainer>
@@ -223,10 +215,13 @@ export default function Sample_Collection_Department_Mapping() {
                                                         <Autocomplete
                                                             disablePortal
                                                             id="combo-box-demo"
-                                                            options={center}
+                                                            options={center_data}
                                                             getOptionLabel={(option) => option.name}
                                                             onChange={(event, newValue) => {
-                                                                setFilteredCenter(newValue);
+                                                                if (newValue) {
+                                                                    const selectedRows = center_data.filter((row) => row.valueId === newValue.valueId);
+                                                                    handleTransferClick(selectedRows);
+                                                                  }
                                                             }}
                                                             renderInput={(params) => <TextField {...params} label="Center Name" />}
                                                             fullWidth
@@ -250,18 +245,16 @@ export default function Sample_Collection_Department_Mapping() {
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
-                                                                {filteredCenter && (
-                                                                    data2.map((row) => (
-                                                                        <StyledTableRow key={row.id}>
-                                                                            <StyledTableCell component="th" scope="row">
-                                                                                {row.id}
-                                                                            </StyledTableCell>
-                                                                            <StyledTableCell>{row.subdepartment}</StyledTableCell>
-                                                                            <StyledTableCell sx={{ color: 'red', cursor: 'pointer' }}
-                                                                                onClick={() => handleDeleteClick()}><CloseIcon /></StyledTableCell>
-                                                                        </StyledTableRow>
-                                                                    ))
-                                                                )}
+                                                                {data2.map((row) => (
+                                                                    <StyledTableRow key={row.id}>
+                                                                        <StyledTableCell component="th" scope="row">
+                                                                            {row.id}
+                                                                        </StyledTableCell>
+                                                                        <StyledTableCell>{row.subdepartment}</StyledTableCell>
+                                                                        <StyledTableCell sx={{ color: 'red', cursor: 'pointer' }}
+                                                                            onClick={() => handleDeleteClick([row])}><CloseIcon /></StyledTableCell>
+                                                                    </StyledTableRow>
+                                                                ))}
                                                             </TableBody>
                                                         </Table>
                                                     </TableContainer>

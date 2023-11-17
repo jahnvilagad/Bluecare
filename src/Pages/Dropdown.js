@@ -10,122 +10,113 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Button from '@mui/material/Button';
 
-const options1 = [
-  { id: 1, name: 'Option 1', valueId: 1 },
-  { id: 2, name: 'Option 2', valueId: 2 },
-  { id: 3, name: 'Option 3', valueId: 1 },
-  { id: 4, name: 'Option 4', valueId: 3 },
+const optionsTable1 = [
+  { id: 1, name: 'Option 1A', valueId: 1, dataName: 'Data for Option 1A', dataValue: 'Value 1A' },
+  { id: 2, name: 'Option 2A', valueId: 2, dataName: 'Data for Option 2A', dataValue: 'Value 2A' },
+  { id: 3, name: 'Option 3A', valueId: 1, dataName: 'Data for Option 3A', dataValue: 'Value 3A' },
+  { id: 4, name: 'Option 4A', valueId: 3, dataName: 'Data for Option 4A', dataValue: 'Value 4A' },
 ];
 
-const options2 = [
-  { id: 5, name: 'Option 5', valueId: 4 },
-  { id: 6, name: 'Option 6', valueId: 5 },
-  { id: 7, name: 'Option 7', valueId: 4 },
-  { id: 8, name: 'Option 8', valueId: 6 },
-];
-
-const initialData1 = [
-  { id: 1, valueId: 1, dataName: 'Data for Option 1', dataValue: 'Value 1' },
-  { id: 2, valueId: 2, dataName: 'Data for Option 2', dataValue: 'Value 2' },
-];
-
-const initialData2 = [
-  { id: 3, valueId: 4, dataName: 'Data for Option 5', dataValue: 'Value 4' },
-  { id: 4, valueId: 5, dataName: 'Data for Option 6', dataValue: 'Value 5' },
+const optionsTable2 = [
+  { id: 5, name: 'Option 5B', valueId: 4, dataName: 'Data for Option 5B', dataValue: 'Value 5B' },
+  { id: 6, name: 'Option 6B', valueId: 5, dataName: 'Data for Option 6B', dataValue: 'Value 6B' },
+  { id: 7, name: 'Option 7B', valueId: 4, dataName: 'Data for Option 7B', dataValue: 'Value 7B' },
+  { id: 8, name: 'Option 8B', valueId: 6, dataName: 'Data for Option 8B', dataValue: 'Value 8B' },
 ];
 
 function App() {
-  const [selectedOption1, setSelectedOption1] = useState(null);
-  const [selectedOption2, setSelectedOption2] = useState(null);
-  const [data1, setData1] = useState(initialData1);
-  const [data2, setData2] = useState(initialData2);
+  const [data1, setData1] = useState([]);
+  const [data2, setData2] = useState([]);
 
-  const handleMoveToSecondTable = () => {
-    if (selectedOption1) {
-      const movedRow = data1.find((row) => row.valueId === selectedOption1.valueId);
-      setData2([...data2, movedRow]);
-      setData1(data1.filter((row) => row.valueId !== selectedOption1.valueId));
-    }
+  const handleMoveToSecondTable = (rows) => {
+    setData2([...data2, ...rows]);
+    setData1(data1.filter((data) => !rows.some((row) => row.id === data.id)));
   };
 
-  const handleMoveToFirstTable = () => {
-    if (selectedOption2) {
-      const movedRow = data2.find((row) => row.valueId === selectedOption2.valueId);
-      setData1([...data1, movedRow]);
-      setData2(data2.filter((row) => row.valueId !== selectedOption2.valueId));
-    }
+  const handleMoveToFirstTable = (rows) => {
+    setData1([...data1, ...rows]);
+    setData2(data2.filter((data) => !rows.some((row) => row.id === data.id)));
   };
+
 
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', margin: '20px' }}>
       <div>
         <Autocomplete
-          options={options1}
+          options={optionsTable1}
           getOptionLabel={(option) => option.name}
           onChange={(event, newValue) => {
-            setSelectedOption1(newValue);
+            if (newValue) {
+              const selectedRows = optionsTable1.filter((row) => row.valueId === newValue.valueId);
+              handleMoveToFirstTable(selectedRows);
+            }
           }}
-          renderInput={(params) => <TextField {...params} label="Select an option for the First Table" />}
+          renderInput={(params) => <TextField {...params} label="Add to First Table" />}
         />
 
-        {selectedOption1 && (
-          <TableContainer component={Paper} style={{ marginTop: '20px' }}>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>ID</TableCell>
-                  <TableCell>Data Name</TableCell>
-                  <TableCell>Data Value</TableCell>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>ID</TableCell>
+                <TableCell>Data Name</TableCell>
+                <TableCell>Data Value</TableCell>
+                <TableCell>Action</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {data1.map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell>{row.id}</TableCell>
+                  <TableCell>{row.dataName}</TableCell>
+                  <TableCell>{row.dataValue}</TableCell>
+                  <TableCell>
+                    <Button onClick={() => handleMoveToSecondTable([row])}>Move to Second Table</Button>
+                  </TableCell>
                 </TableRow>
-              </TableHead>
-              <TableBody>
-                {data1.map((row) => (
-                  <TableRow key={row.id}>
-                    <TableCell>{row.id}</TableCell>
-                    <TableCell>{row.dataName}</TableCell>
-                    <TableCell>{row.dataValue}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-            <Button onClick={handleMoveToSecondTable}>Move to Second Table</Button>
-          </TableContainer>
-        )}
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
 
       <div>
         <Autocomplete
-          options={options2}
+          options={optionsTable2}
           getOptionLabel={(option) => option.name}
           onChange={(event, newValue) => {
-            setSelectedOption2(newValue);
+            if (newValue) {
+              const selectedRows = optionsTable2.filter((row) => row.valueId === newValue.valueId);
+              handleMoveToSecondTable(selectedRows);
+            }
           }}
-          renderInput={(params) => <TextField {...params} label="Select an option for the Second Table" />}
+          renderInput={(params) => <TextField {...params} label="Add to Second Table" />}
         />
 
-        {selectedOption2 && (
-          <TableContainer component={Paper} style={{ marginTop: '20px' }}>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>ID</TableCell>
-                  <TableCell>Data Name</TableCell>
-                  <TableCell>Data Value</TableCell>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>ID</TableCell>
+                <TableCell>Data Name</TableCell>
+                <TableCell>Data Value</TableCell>
+                <TableCell>Action</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {data2.map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell>{row.id}</TableCell>
+                  <TableCell>{row.dataName}</TableCell>
+                  <TableCell>{row.dataValue}</TableCell>
+                  <TableCell>
+                    <Button onClick={() => handleMoveToFirstTable([row])}>Move to First Table</Button>
+                  </TableCell>
                 </TableRow>
-              </TableHead>
-              <TableBody>
-                {data2.map((row) => (
-                  <TableRow key={row.id}>
-                    <TableCell>{row.id}</TableCell>
-                    <TableCell>{row.dataName}</TableCell>
-                    <TableCell>{row.dataValue}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-            <Button onClick={handleMoveToFirstTable}>Move to First Table</Button>
-          </TableContainer>
-        )}
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </div>
   );
