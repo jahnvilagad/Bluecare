@@ -16,6 +16,7 @@ import logo from './assets/img/logo/white.png';
 import classes from './assets/css/custom.module.css';
 import { Typography } from '@mui/material';
 
+
 function ElevationScroll(props) {
     const { children, window } = props;
     // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -41,7 +42,7 @@ ElevationScroll.propTypes = {
     window: PropTypes.func,
 };
 
-export default function ElevateAppBar(props) {
+export default function Login(props) {
     const navigate = useNavigate()
     return (
         <React.Fragment>
@@ -62,13 +63,13 @@ export default function ElevateAppBar(props) {
                                 </Box>
                             </Toolbar>
                         </Container>
-
                     </AppBar>
                 </ElevationScroll>
                 <Toolbar />
-                <Box className={classes.BgColor} sx={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%, 0 9%, 100% 0);' }}>
-                    <Container>
-                        <Box sx={{ my: 2 }}>
+                {/* <Box height={70}/> */}
+                    <Box sx={{ my: 2 }}>
+                        <Box className={classes.BgColor} sx={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%, 0 9%, 100% 0);',
+                        position: 'fixed',bottom: '0',width: '100%' }}>
                             <Grid container spacing={2} alignItems="center" justifyContent="center">
                                 <Grid item lg={6} md={6} sm={12}>
                                     <Card sx={{ margin: "1.5rem", border: '3px solid #172b4d', background: '#f7fafc' }}>
@@ -115,11 +116,11 @@ export default function ElevateAppBar(props) {
                                 </Grid>
                             </Grid>
                         </Box>
-                    </Container>
-                </Box>
+                    </Box>
+
             </Box>
 
 
-        </React.Fragment >
+        </React.Fragment>
     );
 }
