@@ -254,7 +254,7 @@ export default function Sidenav() {
 
 
                 <List>
-                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/') }}>
+                    <ListItem disablePadding sx={{ display: 'block' }} onClick={() => { navigate('/dashboard') }}>
                         <ListItemButton
                             sx={{
                                 minHeight: 48,

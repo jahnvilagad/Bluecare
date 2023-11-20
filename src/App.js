@@ -14,13 +14,15 @@ import Patient_Profile from './Pages/Patient_Profile';
 import Sample_Collection_Department_Mapping from './Pages/Sample_Collection_Department_Mapping';
 import Set_value_master from './Pages/Set_value_master';
 import Dropdown from './Pages/Dropdown';
+import Login from './Login';
 
 
 function App() {
   return (
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Dashboard />}></Route>
+          <Route path='/' element={<Login />}></Route>
+            <Route path='/dashboard' element={<Dashboard />}></Route>
             <Route path='/prescription' element={<Prescriptions />}></Route>
             <Route path='/speciality' element={<Specialities />}></Route>
             <Route path='/upload-prescriptions' element={<Upload_Prescriptions />}></Route>
