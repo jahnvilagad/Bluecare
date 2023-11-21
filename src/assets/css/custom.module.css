@@ -55,7 +55,8 @@
 }
 
 .AppBar {
-  background-color: unset !important;
+  background-color: #fff !important;
+  box-shadow: unset !important;
 }
 
 .ClipPolygon {
