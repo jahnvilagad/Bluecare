@@ -15,7 +15,7 @@ import Button from '@mui/material/Button';
 import logo from './assets/img/logo/white.png';
 import classes from './assets/css/custom.module.css';
 import { Typography } from '@mui/material';
-import { inputformelemnet } from './FormElement';
+import { inputformelemnet } from './RegisterFormElement';
 
 
 function ElevationScroll(props) {
@@ -70,34 +70,31 @@ export default function Login(props) {
                 <Box height={70} />
                 <Box sx={{ my: 2 }}>
                     <Box>
-                        <form>
-                            <Grid container spacing={2} alignItems="center" justifyContent="center">
-                                <Grid item lg={4} md={6} sm={12}>
-                                    <Card sx={{ border: '3px solid #172b4d', background: '#f7fafc' }}>
-                                        <CardContent sx={{ padding: "1.5rem" }}>
-                                            <Box sx={{ width: '100%' }} align='center'>
-                                                <Typography sx={{ fontSize: "1.5rem", fontWeight: "600", color: "#32325d", marginBottom: "1rem" }}>Sign IN</Typography>
+                        <Grid container spacing={2} alignItems="center" justifyContent="center">
+                            <Grid item lg={5} md={6} sm={12}>
+                                <Card sx={{ border: '3px solid #172b4d', background: '#f7fafc' }}>
+                                    <CardContent sx={{ padding: "1.5rem" }}>
+                                        <Box sx={{ width: '100%' }} align='center'>
+                                            <Typography sx={{ fontSize: "1.5rem", fontWeight: "600", color: "#32325d", marginBottom: "1rem" }}>Sign UP</Typography>
 
-                                                {
-                                                    inputformelemnet.map(input => <TextField {...input} sx={{ marginBottom: '1.5rem' }} />)
-                                                }
+                                            {
+                                                inputformelemnet.map(input => <TextField {...input} sx={{ marginBottom: '1.5rem' }} />)
+                                            }
 
+                                            <Button variant='contained' onClick={() => navigate('/')}>
+                                                Create Account
+                                            </Button>
+                                        </Box>
+                                    </CardContent>
+                                </Card>
 
-                                                <Button variant='contained' onClick={() => navigate('/')}>
-                                                    Sign in
-                                                </Button>
-                                            </Box>
-                                        </CardContent>
-                                    </Card>
-
-                                    <Box sx={{ my: 2 }}>
-                                        <Button variant='text' onClick={() => navigate('/register')} sx={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-                                            Register
-                                        </Button>
-                                    </Box>
-                                </Grid>
+                                <Box sx={{ my: 2 }}>
+                                    <Button variant='text' onClick={() => navigate('/')} sx={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                                        Login
+                                    </Button>
+                                </Box>
                             </Grid>
-                        </form>
+                        </Grid>
                     </Box>
                 </Box>
             </Box>
