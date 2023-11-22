@@ -13,6 +13,13 @@
       "password": "123456",
       "cpassword": "123456",
       "id": 2
+    },
+    {
+      "uname": "jahnvi",
+      "email": "xyz@gmail.com",
+      "password": "456123",
+      "cpassword": "456123",
+      "id": 3
     }
   ]
 }
