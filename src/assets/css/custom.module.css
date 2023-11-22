@@ -68,6 +68,10 @@
   background-color: #172b4d;
 }
 
+.TextRed{
+  color: #FF0000;
+}
+
 
 @media (max-width:1024px) {
   .CardMr {

@@ -1,0 +1,18 @@
+{
+  "patient": [
+    {
+      "uname": "jahnvi",
+      "email": "jahnvilagad97@gmail.com",
+      "password": "123456",
+      "cpassword": "123456",
+      "id": 1
+    },
+    {
+      "uname": "jahnvi",
+      "email": "abc@gmail.com",
+      "password": "123456",
+      "cpassword": "123456",
+      "id": 2
+    }
+  ]
+}
