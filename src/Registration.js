@@ -43,7 +43,7 @@ ElevationScroll.propTypes = {
     window: PropTypes.func,
 };
 
-export default function Login(props) {
+export default function Registation(props) {
     const [formData, setFormData] = useState({
         uname: '',
         email: '',

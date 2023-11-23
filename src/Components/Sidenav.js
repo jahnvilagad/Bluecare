@@ -142,7 +142,7 @@ export default function Sidenav() {
             sx={{ marginTop: "2rem" }}
         >
             <Typography sx={{ borderBottom: "1px solid #dddddd", padding: "5px 10px" }}>Patient</Typography>
-            <MenuItem onClick={handleMenuClose}><Link href="Patient_Profile" underline="none" display="flex"><PersonIcon sx={{ marginRight: "1rem", fontSize: "20px" }} />My Profile</Link></MenuItem>
+            <MenuItem><Link href="Patient_Profile" underline="none" display="flex"><PersonIcon sx={{ marginRight: "1rem", fontSize: "20px" }} />My Profile</Link></MenuItem>
             <MenuItem onClick={handleMenuClose}><LogoutIcon sx={{ marginRight: "1rem", fontSize: "16px" }} />Logout</MenuItem>
         </Menu>
     );
