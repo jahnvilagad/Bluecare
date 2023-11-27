@@ -18,10 +18,6 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
-import ImageIcon from "@mui/icons-material/Image";
-import WorkIcon from "@mui/icons-material/Work";
-import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -102,7 +98,7 @@ export default function General_Practice() {
                                                         <Grid item lg={8} sx={{display: 'flex', justifyContent: 'end'}}>
                                                             <List sx={{display: 'flex', justifyContent: 'end'}}>
                                                                 <ListItem>
-                                                                    <ListItemAvatar><Box sx={{width: '1.5rem', height: '1.5rem' , background: '#1976d2'}}></Box></ListItemAvatar>
+                                                                    <ListItemAvatar sx={{minWidth: "32px"}}><Box sx={{width: '1.5rem', height: '1.5rem' , background: '#9fa2a6'}}></Box></ListItemAvatar>
                                                                     <ListItemText primary="Blocked" sx={{whiteSpace: 'nowrap'}}/>
                                                                 </ListItem>
                                                                 <ListItem>
@@ -110,7 +106,7 @@ export default function General_Practice() {
                                                                     <ListItemText primary="Clinic Visit" sx={{whiteSpace: 'nowrap'}}/>
                                                                 </ListItem>
                                                                 <ListItem>
-                                                                    <ListItemAvatar><Box sx={{width: '1.5rem', height: '1.5rem' , background: '#1976d2'}}></Box></ListItemAvatar>
+                                                                    <ListItemAvatar><Box sx={{width: '1.5rem', height: '1.5rem' , background: '#7986cb'}}></Box></ListItemAvatar>
                                                                     <ListItemText primary="Tele Visit" sx={{whiteSpace: 'nowrap'}}/>
                                                                 </ListItem>
                                                             </List>

@@ -21,6 +21,11 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
+import MedicationIcon from '@mui/icons-material/Medication';
+import BookOnlineIcon from '@mui/icons-material/BookOnline';
 import MenuItem from '@mui/material/MenuItem';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -260,6 +265,11 @@ export default function Sidenav() {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
+                                background:"#f6f9fc",
+                                marginBottom: "3px",
+                                '&:hover': {
+                                    background: '#f6f9fc'
+                                }
                             }}
                         >
                             <ListItemIcon
@@ -281,6 +291,11 @@ export default function Sidenav() {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
+                                background:"#f6f9fc",
+                                marginBottom: "3px",
+                                '&:hover': {
+                                    background: '#f6f9fc'
+                                }
                             }}
                         >
                             <ListItemIcon
@@ -290,7 +305,7 @@ export default function Sidenav() {
                                     justifyContent: 'center',
                                 }}
                             >
-                                <DashboardIcon />
+                                <BookOnlineIcon />
                             </ListItemIcon>
                             <ListItemText primary="Appointments" sx={{ opacity: open ? 1 : 0, color: "rgba(0, 0, 0, 0.6)", fontSize: "0.875rem" }} />
                         </ListItemButton>
@@ -302,6 +317,11 @@ export default function Sidenav() {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
+                                background:"#f6f9fc",
+                                marginBottom: "3px",
+                                '&:hover': {
+                                    background: '#f6f9fc'
+                                }
                             }}
                         >
                             <ListItemIcon
@@ -311,7 +331,7 @@ export default function Sidenav() {
                                     justifyContent: 'center',
                                 }}
                             >
-                                <DashboardIcon />
+                                <BookOnlineIcon />
                             </ListItemIcon>
                             <ListItemText primary="Book Appointments" sx={{ opacity: open ? 1 : 0, color: "rgba(0, 0, 0, 0.6)", fontSize: "0.875rem" }} />
                         </ListItemButton>
@@ -323,6 +343,11 @@ export default function Sidenav() {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
+                                background:"#f6f9fc",
+                                marginBottom: "3px",
+                                '&:hover': {
+                                    background: '#f6f9fc'
+                                }
                             }}
                         >
                             <ListItemIcon
@@ -332,7 +357,7 @@ export default function Sidenav() {
                                     justifyContent: 'center',
                                 }}
                             >
-                                <DashboardIcon />
+                                <LocalHospitalIcon />
                             </ListItemIcon>
                             <ListItemText primary="Medical History" sx={{ opacity: open ? 1 : 0, color: "rgba(0, 0, 0, 0.6)", fontSize: "0.875rem" }} />
                         </ListItemButton>
@@ -344,6 +369,11 @@ export default function Sidenav() {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
+                                background:"#f6f9fc",
+                                marginBottom: "3px",
+                                '&:hover': {
+                                    background: '#f6f9fc'
+                                }
                             }}
                         >
                             <ListItemIcon
@@ -353,7 +383,7 @@ export default function Sidenav() {
                                     justifyContent: 'center',
                                 }}
                             >
-                                <DashboardIcon />
+                                <MedicationIcon />
                             </ListItemIcon>
                             <ListItemText primary="Prescriptions" sx={{ opacity: open ? 1 : 0, color: "rgba(0, 0, 0, 0.6)", fontSize: "0.875rem" }} />
                         </ListItemButton>
@@ -366,6 +396,11 @@ export default function Sidenav() {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
+                                background:"#f6f9fc",
+                                marginBottom: "3px",
+                                '&:hover': {
+                                    background: '#f6f9fc'
+                                }
                             }}
                         >
                             <ListItemIcon
@@ -375,7 +410,7 @@ export default function Sidenav() {
                                     justifyContent: 'center',
                                 }}
                             >
-                                <DashboardIcon />
+                                <UploadFileIcon />
                             </ListItemIcon>
                             <ListItemText primary="Upload Prescription" sx={{ opacity: open ? 1 : 0, color: "rgba(0, 0, 0, 0.6)", fontSize: "0.875rem" }} />
                         </ListItemButton>
@@ -387,6 +422,11 @@ export default function Sidenav() {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
+                                background:"#f6f9fc",
+                                marginBottom: "3px",
+                                '&:hover': {
+                                    background: '#f6f9fc'
+                                }
                             }}
                         >
                             <ListItemIcon
@@ -396,7 +436,7 @@ export default function Sidenav() {
                                     justifyContent: 'center',
                                 }}
                             >
-                                <DashboardIcon />
+                                <AccountBoxIcon />
                             </ListItemIcon>
                             <ListItemText primary="Profile" sx={{ opacity: open ? 1 : 0, color: "rgba(0, 0, 0, 0.6)", fontSize: "0.875rem" }} />
                         </ListItemButton>
@@ -408,6 +448,11 @@ export default function Sidenav() {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
+                                background:"#f6f9fc",
+                                marginBottom: "3px",
+                                '&:hover': {
+                                    background: '#f6f9fc'
+                                }
                             }}
                         >
                             <ListItemIcon
@@ -429,6 +474,11 @@ export default function Sidenav() {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
+                                background:"#f6f9fc",
+                                marginBottom: "3px",
+                                '&:hover': {
+                                    background: '#f6f9fc'
+                                }
                             }}
                         >
                             <ListItemIcon
@@ -450,6 +500,11 @@ export default function Sidenav() {
                                 minHeight: 48,
                                 justifyContent: open ? 'initial' : 'center',
                                 px: 2.5,
+                                background:"#f6f9fc",
+                                marginBottom: "3px",
+                                '&:hover': {
+                                    background: '#f6f9fc'
+                                }
                             }}
                         >
                             <ListItemIcon
