@@ -22,6 +22,7 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import { createTheme } from "@mui/material/styles";
 import profile_cover from '../assets/img/banner/profile-cover.jpg';
 import classes from '../assets/css/custom.module.css';
 import user_img from '../assets/img/feature/user-img.jpg';
@@ -34,6 +35,32 @@ const facility = [
     { label: 'Suzie Turn' },
     { label: 'Suzie Turn' },
 ];
+
+const myTheme = createTheme({
+    // style radio button as button element
+    components: {
+        MuiFormControlLabel: {
+            styleOverrides: {
+                root: {
+                    color: "#293264",
+                    margin: "5px 15px 0 0",
+                    padding: "2px 8px",
+                    width: "max-content",
+                    borderStyle: "none",
+                    border: "1px solid !important",
+                    borderRadius: "13px!important",
+                    "&.Mui-selected": {
+                        backgroundColor: "#D6DBF5",
+                        borderStyle: "none!important"
+                    },
+                    "&:hover": {
+                        backgroundColor: "#D6DBF5"
+                    }
+                }
+            }
+        }
+    }
+});
 
 
 
@@ -70,17 +97,17 @@ export default function General_Practice() {
                                     <CardContent>
                                         <FormGroup>
                                             <Grid container spacing={2}>
-                                                <Grid item lg={2} sm={6} xs={12}>
+                                                <Grid item xl={2} lg={3} sm={6} xs={12}>
                                                     <img src={user_img} alt='User Img' />
                                                 </Grid>
-                                                <Grid item lg={4} sm={6} xs={12}>
+                                                <Grid item xl={4} lg={4} sm={6} xs={12}>
                                                     <Box>
                                                         <Typography variant='h6'>Dr. Abimbola Afolabi,</Typography>
                                                         <Typography>General Practice</Typography>
                                                         <Link href="#" underline="none" display="flex">More <KeyboardArrowRightIcon /></Link>
                                                     </Box>
                                                 </Grid>
-                                                <Grid item lg={4} sm={6} xs={12}>
+                                                <Grid item xl={4} lg={4} sm={6} xs={12}>
                                                     <Typography sx={{ color: "#2dce89", marginBottom: "2rem" }} display="flex" ><WatchLaterIcon />Available Today</Typography>
                                                     <Autocomplete
                                                         disablePortal
@@ -94,20 +121,20 @@ export default function General_Practice() {
                                             </Grid>
                                             {selectedId && (
                                                 <Grid container spacing={2} className={classes.RadioToolbar} >
-                                                    <Grid container spacing={2} sx={{marginLeft: '53rem'}}>
-                                                        <Grid item lg={8} sx={{display: 'flex', justifyContent: 'end'}}>
-                                                            <List sx={{display: 'flex', justifyContent: 'end'}}>
+                                                    <Grid container spacing={2} >
+                                                        <Grid item lg={10} sx={{ display: 'flex', justifyContent: 'end' }}>
+                                                            <List sx={{ display: 'flex', justifyContent: 'end' }}>
                                                                 <ListItem>
-                                                                    <ListItemAvatar sx={{minWidth: "32px"}}><Box sx={{width: '1.5rem', height: '1.5rem' , background: '#9fa2a6'}}></Box></ListItemAvatar>
-                                                                    <ListItemText primary="Blocked" sx={{whiteSpace: 'nowrap'}}/>
+                                                                    <ListItemAvatar sx={{ minWidth: "32px" }}><Box sx={{ width: '1.5rem', height: '1.5rem', background: '#9fa2a6' }}></Box></ListItemAvatar>
+                                                                    <ListItemText primary="Blocked" sx={{ whiteSpace: 'nowrap' }} />
                                                                 </ListItem>
                                                                 <ListItem>
-                                                                    <ListItemAvatar><Box sx={{width: '1.5rem', height: '1.5rem' , background: '#1976d2'}}></Box></ListItemAvatar>
-                                                                    <ListItemText primary="Clinic Visit" sx={{whiteSpace: 'nowrap'}}/>
+                                                                    <ListItemAvatar sx={{ minWidth: "32px" }}><Box sx={{ width: '1.5rem', height: '1.5rem', background: '#1976d2' }}></Box></ListItemAvatar>
+                                                                    <ListItemText primary="Clinic Visit" sx={{ whiteSpace: 'nowrap' }} />
                                                                 </ListItem>
                                                                 <ListItem>
-                                                                    <ListItemAvatar><Box sx={{width: '1.5rem', height: '1.5rem' , background: '#7986cb'}}></Box></ListItemAvatar>
-                                                                    <ListItemText primary="Tele Visit" sx={{whiteSpace: 'nowrap'}}/>
+                                                                    <ListItemAvatar sx={{ minWidth: "32px" }}><Box sx={{ width: '1.5rem', height: '1.5rem', background: '#7986cb' }}></Box></ListItemAvatar>
+                                                                    <ListItemText primary="Tele Visit" sx={{ whiteSpace: 'nowrap' }} />
                                                                 </ListItem>
                                                             </List>
                                                         </Grid>
@@ -121,7 +148,7 @@ export default function General_Practice() {
                                                             </DemoContainer>
                                                         </LocalizationProvider>
                                                     </Grid>
-                                                    <Grid item lg={6}>
+                                                    <Grid item lg={6} theme={myTheme}>
                                                         <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Morning</Typography>
                                                         <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Afternoon</Typography>
                                                         <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Evening</Typography>
@@ -141,17 +168,17 @@ export default function General_Practice() {
                                                 </Grid>
                                             )}
                                             <Grid container spacing={2}>
-                                                <Grid item lg={2} sm={6} xs={12}>
+                                                <Grid item xl={2} lg={3} sm={6} xs={12}>
                                                     <img src={user_img} alt='User Img' />
                                                 </Grid>
-                                                <Grid item lg={4} sm={6} xs={12}>
+                                                <Grid item xl={4} lg={4} sm={6} xs={12}>
                                                     <Box>
                                                         <Typography variant='h6'>Dr. Abimbola Afolabi,</Typography>
                                                         <Typography>General Practice</Typography>
                                                         <Link href="#" underline="none" display="flex">More <KeyboardArrowRightIcon /></Link>
                                                     </Box>
                                                 </Grid>
-                                                <Grid item lg={4} sm={6} xs={12}>
+                                                <Grid item xl={4} lg={4} sm={6} xs={12}>
                                                     <Typography sx={{ color: "#2dce89", marginBottom: "2rem" }} display="flex" ><WatchLaterIcon />Available Today</Typography>
                                                     <Autocomplete
                                                         disablePortal
