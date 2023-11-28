@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import Sidenav from '../Components/Sidenav';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -28,6 +28,7 @@ import classes from '../assets/css/custom.module.css';
 import user_img from '../assets/img/feature/user-img.jpg';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const facility = [
     { label: 'Suzie Turn' },
@@ -36,37 +37,39 @@ const facility = [
     { label: 'Suzie Turn' },
 ];
 
-const myTheme = createTheme({
-    // style radio button as button element
-    components: {
-        MuiFormControlLabel: {
-            styleOverrides: {
-                root: {
-                    color: "#293264",
-                    margin: "5px 15px 0 0",
-                    padding: "2px 8px",
-                    width: "max-content",
-                    borderStyle: "none",
-                    border: "1px solid !important",
-                    borderRadius: "13px!important",
-                    "&.Mui-selected": {
-                        backgroundColor: "#D6DBF5",
-                        borderStyle: "none!important"
-                    },
-                    "&:hover": {
-                        backgroundColor: "#D6DBF5"
-                    }
-                }
-            }
-        }
-    }
-});
+
 
 
 
 
 export default function General_Practice() {
-    const [selectedId, setSelectedId] = useState(false);
+    // const [selectedId, setSelectedId] = useState(false);
+
+
+    const [tags, setTags] = useState([]);
+    const [selectedTag, setSelectedTag] = useState(null);
+    const [displayedTag, setDisplayedTag] = useState('');
+
+    useEffect(() => {
+        // Fetch tags data from the JSON server
+        axios.get('http://localhost:8000/tags')
+            .then(response => {
+                setTags(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching tags:', error);
+            });
+    }, []);
+
+    const handleTagChange = (event, newValue) => {
+        setSelectedTag(newValue);
+    };
+
+    const handleButtonClick = () => {
+        if (selectedTag) {
+            setDisplayedTag(selectedTag.name);
+        }
+    };
 
     const navigate = useNavigate()
 
@@ -112,14 +115,17 @@ export default function General_Practice() {
                                                     <Autocomplete
                                                         disablePortal
                                                         id="combo-box-demo"
-                                                        options={facility}
-                                                        renderInput={(params) => <TextField {...params} label="Facility Name" />}
+                                                        options={tags}
+                                                        getOptionLabel={(option) => option.name}
+                                                        onChange={handleTagChange}
+                                                        value={selectedTag}
+                                                        renderInput={(params) => <TextField {...params} label="Select Facility Name" />}
                                                         sx={{ marginBottom: "1rem" }}
                                                     />
-                                                    <Button variant="contained" fullWidth onClick={() => setSelectedId(prev => !prev)}>Available Time Slot</Button>
+                                                    <Button variant="contained" fullWidth onClick={handleButtonClick}>Available Time Slot</Button>
                                                 </Grid>
                                             </Grid>
-                                            {selectedId && (
+                                            {displayedTag && (
                                                 <Grid container spacing={2} className={classes.RadioToolbar} >
                                                     <Grid container spacing={2} >
                                                         <Grid item lg={10} sx={{ display: 'flex', justifyContent: 'end' }}>
@@ -148,7 +154,7 @@ export default function General_Practice() {
                                                             </DemoContainer>
                                                         </LocalizationProvider>
                                                     </Grid>
-                                                    <Grid item lg={6} theme={myTheme}>
+                                                    <Grid item lg={6} >
                                                         <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Morning</Typography>
                                                         <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Afternoon</Typography>
                                                         <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Evening</Typography>
