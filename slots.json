@@ -1,0 +1,19 @@
+{
+  "slots": {
+    "morning": [
+      "Slot 1",
+      "Slot 2",
+      "Slot 3"
+    ],
+    "afternoon": [
+      "Slot A",
+      "Slot B",
+      "Slot C"
+    ],
+    "evening": [
+      "Slot X",
+      "Slot Y",
+      "Slot Z"
+    ]
+  }
+}
