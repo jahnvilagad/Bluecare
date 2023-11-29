@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidenav from '../Components/Sidenav';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -36,6 +36,33 @@ const facility = [
     { label: 'Suzie Turn' },
     { label: 'Suzie Turn' },
 ];
+
+
+const myTheme = createTheme({
+    // style radio button as button element
+    components: {
+        MuiRadioGroup: {
+            styleOverrides: {
+                root: {
+                    color: "#293264",
+                    margin: "5px 15px 0 0",
+                    padding: "2px 8px",
+                    width: "max-content",
+                    borderStyle: "none",
+                    border: "1px solid !important",
+                    borderRadius: "13px!important",
+                    "&.Mui-checked": {
+                        backgroundColor: "#D6DBF5",
+                        borderStyle: "none!important"
+                    },
+                    "&:hover": {
+                        backgroundColor: "#D6DBF5"
+                    }
+                }
+            }
+        }
+    }
+});
 
 
 
@@ -158,7 +185,7 @@ export default function General_Practice() {
                                                         <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Morning</Typography>
                                                         <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Afternoon</Typography>
                                                         <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Evening</Typography>
-                                                        <FormControl>
+                                                        <FormControl theme={myTheme}>
                                                             <RadioGroup
                                                                 row
                                                                 aria-labelledby="demo-row-radio-buttons-group-label"
@@ -166,7 +193,7 @@ export default function General_Practice() {
                                                             >
                                                                 <FormControlLabel value="6:00 PM" control={<Radio sx={{ padding: "5px" }} />} label="6:00 PM" />
                                                                 <FormControlLabel value="6:10 PM" control={<Radio sx={{ padding: "5px" }} />} label="6:10 PM" />
-                                                                <FormControlLabel value="6:20 PM" control={<Radio sx={{ padding: "5px" }} color="success" />} label="6:20 PM" />
+                                                                <FormControlLabel value="6:20 PM" control={<Radio sx={{ padding: "5px" }} />} label="6:20 PM" />
                                                             </RadioGroup>
                                                         </FormControl>
                                                         <Button variant="contained" onClick={() => navigate('/appointment_request')} sx={{ float: "right" }}>Next</Button>
