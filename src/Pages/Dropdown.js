@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Paper, Typography } from '@mui/material';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Radio from '@mui/material/Radio';
-// import { withStyles } from '@mui/material/styles';
-// import { withStyles } from '@mui/material/styles';
 import axios from 'axios';
-// import classes from '../assets/css/custom.module.css';
+import { Grid, Paper, Typography, FormControlLabel, Radio } from '@mui/material';
 
-// Custom styles for the radio buttons
 const DailyScheduler = () => {
   const [slots, setSlots] = useState({
     morning: [],
     afternoon: [],
     evening: [],
   });
+
+  // Mock data for selected and blocked slots (can be replaced with your logic)
+  const [selectedSlots, setSelectedSlots] = useState([]);
+  const [blockedSlots, setBlockedSlots] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:8001/slots')
@@ -23,57 +21,84 @@ const DailyScheduler = () => {
       .catch(error => {
         console.error('Error fetching slots:', error);
       });
+
+    // Mock selected and blocked slots
+    // setSelectedSlots(['Slot 1', 'Slot A']);
+    setBlockedSlots(['Slot 3', 'Slot B']);
   }, []);
 
-  const [selectedSlot, setSelectedSlot] = useState(null);
-
   const handleSlotChange = (time, slot) => {
-    setSelectedSlot(slot);
-    // Handle the selected slot based on the time (morning, afternoon, evening)
-    console.log(`Selected ${time} slot: ${slot}`);
+    const isBlocked = blockedSlots.includes(slot);
+    const isSelected = selectedSlots.includes(slot);
+
+    // If the slot is available and not blocked, handle the selection
+    if (!isBlocked && !isSelected) {
+      setSelectedSlots(prevSelected => [...prevSelected, slot]);
+      console.log(`Selected ${time} slot: ${slot}`);
+    } else {
+      // Handle the case when the slot is blocked or already selected
+      console.log(`Cannot select ${time} slot: ${slot}`);
+    }
   };
 
-  const buttonLikeRadio = {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '120px',
-    height: '40px',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-    margin: '5px',
-    userSelect: 'none',
-  };
+  const renderSlots = (time) => {
+    if (!slots[time]) {
+      return null; // Return null if slots[time] is undefined
+    }
+    else {
+      return (
+        <Paper>
+          <Typography variant="h6">{`${time} Slot`}</Typography>
+          {slots[time].map((slot, index) => {
+            const isBlocked = blockedSlots.includes(slot);
+            const isSelected = selectedSlots.includes(slot);
+            const isAvailable = !isBlocked && !isSelected;
 
-  const selectedButton = {
-    backgroundColor: '#2196f3', // Change the background color when selected
-    color: '#fff',
-  };
+            const buttonLikeRadio = {
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '120px',
+              height: '40px',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: isBlocked ? 'not-allowed' : 'pointer',
+              transition: 'background-color 0.3s ease',
+              margin: '5px',
+              userSelect: 'none',
+              backgroundColor: '#2196f3',
+              color: '#fff',
+            };
 
-  const renderSlots = (time) => (
-    <Paper>
-      <Typography variant="h6">{`${time} Slot`}</Typography>
-      {slots[time].map((slot, index) => (
-        <label
-          key={index}
-          style={{
-            ...buttonLikeRadio,
-            ...(selectedSlot === slot && selectedButton),
-          }}
-        >
-          <FormControlLabel
-            value={slot}
-            control={<Radio style={{ display: 'none' }} />}
-            label={slot}
-            onChange={() => handleSlotChange(time, slot)}
-          />
-          {/* {slot} */}
-        </label>
-      ))}
-    </Paper>
-  );
+            const selectedButton = {
+              backgroundColor: 'green',
+              color: '#fff',
+            };
+
+            return (
+              <label
+                key={index}
+                style={{
+                  ...buttonLikeRadio,
+                  ...(isSelected && selectedButton),
+                }}
+              >
+                <FormControlLabel
+                  value={slot}
+                  control={<Radio style={{ display: 'none' }} />}
+                  label={slot}
+                  onChange={() => handleSlotChange(time, slot)}
+                  disabled={isBlocked}
+                />
+                {/* {slot} */}
+              </label>
+            );
+          })}
+        </Paper>
+      );
+    }
+
+  };
 
   return (
     <Grid container spacing={3}>
@@ -92,4 +117,5 @@ const DailyScheduler = () => {
     </Grid>
   );
 };
+
 export default DailyScheduler;

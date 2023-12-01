@@ -13,6 +13,7 @@ import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
 import MedicationLiquidIcon from '@mui/icons-material/MedicationLiquid';
 import profile_cover from '../assets/img/banner/profile-cover.jpg';
 import classes from '../assets/css/custom.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const bull = (
   <Box
@@ -24,6 +25,7 @@ const bull = (
 );
 
 export default function Dashboard() {
+  const navigate = useNavigate()
   return (
     <>
       <Box height={30} />
@@ -61,7 +63,7 @@ export default function Dashboard() {
                             </Typography>
                           </CardContent>
                           <CardActions>
-                            <Button size="small" variant='contained'>Book Appointments</Button>
+                            <Button size="small" variant='contained' onClick={() => navigate('/speciality')}>Book Appointments</Button>
                           </CardActions>
                         </Card>
                       </Grid>

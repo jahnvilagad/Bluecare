@@ -1,19 +1,19 @@
 {
   "slots": {
     "morning": [
-      "Slot 1",
-      "Slot 2",
-      "Slot 3"
+      "6:00 PM",
+      "6:10 PM",
+      "6:20 PM"
     ],
     "afternoon": [
-      "Slot A",
-      "Slot B",
-      "Slot C"
+      "6:30 PM",
+      "6:40 PM",
+      "6:50 PM"
     ],
     "evening": [
-      "Slot X",
-      "Slot Y",
-      "Slot Z"
+      "7:00 PM",
+      "7:10 PM",
+      "7:20 PM"
     ]
   }
 }

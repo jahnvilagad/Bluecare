@@ -34,22 +34,6 @@
   border-radius: 50%;
 }
 
-.RadioToolbar {
-  margin-bottom: 1rem;
-}
-
-.RadioToolbar input[type="radio"]:checked+label {
-  background-color: #333;
-  color: #fff
-}
-
-.RadioToolbar label {
-  display: inline-block;
-  background-color: #ddd;
-  padding: 2px 10px;
-  cursor: pointer;
-}
-
 .css-vqmohf-MuiButtonBase-root-MuiRadio-root {
   display: none;
 }
@@ -70,30 +54,6 @@
 
 .TextRed{
   color: #FF0000;
-}
-
-.buttonLikeRadioContainer {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.buttonLikeRadio {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 40px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 5px;
-  user-select: none;
-  transition: background-color 0.3s ease;
-}
-
-.buttonLikeRadio input[type='radio']:checked + span {
-  background-color: #2196f3;
-  color: #fff;
 }
 
 

@@ -1,16 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import Sidenav from '../Components/Sidenav';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { FormGroup, TextField, Typography } from '@mui/material';
-import { FormControl } from '@mui/material';
 import Link from '@mui/material/Link';
 import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
@@ -18,11 +15,11 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Box from '@mui/material/Box';
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
-import { createTheme } from "@mui/material/styles";
 import profile_cover from '../assets/img/banner/profile-cover.jpg';
 import classes from '../assets/css/custom.module.css';
 import user_img from '../assets/img/feature/user-img.jpg';
@@ -37,41 +34,8 @@ const facility = [
     { label: 'Suzie Turn' },
 ];
 
-
-const myTheme = createTheme({
-    // style radio button as button element
-    components: {
-        MuiRadioGroup: {
-            styleOverrides: {
-                root: {
-                    color: "#293264",
-                    margin: "5px 15px 0 0",
-                    padding: "2px 8px",
-                    width: "max-content",
-                    borderStyle: "none",
-                    border: "1px solid !important",
-                    borderRadius: "13px!important",
-                    "&.Mui-checked": {
-                        backgroundColor: "#D6DBF5",
-                        borderStyle: "none!important"
-                    },
-                    "&:hover": {
-                        backgroundColor: "#D6DBF5"
-                    }
-                }
-            }
-        }
-    }
-});
-
-
-
-
-
-
 export default function General_Practice() {
     // const [selectedId, setSelectedId] = useState(false);
-
 
     const [tags, setTags] = useState([]);
     const [selectedTag, setSelectedTag] = useState(null);
@@ -97,6 +61,104 @@ export default function General_Practice() {
             setDisplayedTag(selectedTag.name);
         }
     };
+
+    const [slots, setSlots] = useState({
+        morning: [],
+        afternoon: [],
+        evening: [],
+    });
+
+    const [selectedSlots, setSelectedSlots] = useState([]);
+    const [blockedSlots, setBlockedSlots] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8001/slots')
+            .then(response => {
+                console.log(response.data);
+                if (response.data) {
+                    setSlots(response.data);
+                }
+
+            })
+            .catch(error => {
+                console.error('Error fetching slots:', error);
+            });
+
+        // Mock selected and blocked slots
+        // setSelectedSlots(['Slot 1', 'Slot A']);
+        setBlockedSlots(['6:20 PM', '6:40 PM']);
+    }, []);
+
+    // const [selectedSlot, setSelectedSlot] = useState(null);
+
+    const handleSlotChange = (time, slot) => {
+        const isBlocked = blockedSlots.includes(slot);
+        const isSelected = selectedSlots.includes(slot);
+
+        // If the slot is available and not blocked, handle the selection
+        if (!isBlocked && !isSelected) {
+            setSelectedSlots(prevSelected => [...prevSelected, slot]);
+            console.log(`Selected ${time} slot: ${slot}`);
+        } else {
+            // Handle the case when the slot is blocked or already selected
+            console.log(`Cannot select ${time} slot: ${slot}`);
+        }
+    };
+
+    const renderSlots = (time) => {
+        return (
+            <Box>
+                <Typography variant="h6">{`${time} Slot`}</Typography>
+                {(slots[time] || []).map((slot, index) => {
+                    const isBlocked = blockedSlots.includes(slot);
+                    const isSelected = selectedSlots.includes(slot);
+                    const isAvailable = !isBlocked && !isSelected;
+
+                    const buttonLikeRadio = {
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '120px',
+                        height: '40px',
+                        border: '1px solid #ccc',
+                        borderRadius: '4px',
+                        cursor: isBlocked ? 'not-allowed' : 'pointer',
+                        transition: 'background-color 0.3s ease',
+                        margin: '5px',
+                        userSelect: 'none',
+                        backgroundColor: '#2196f3',
+                        color: '#fff',
+                    };
+
+                    const selectedButton = {
+                        backgroundColor: 'green',
+                        color: '#fff',
+                    };
+                    return (
+                        <label
+                            key={index}
+                            style={{
+                                ...buttonLikeRadio,
+                                ...(isSelected && selectedButton),
+                            }}
+                        >
+                            <FormControlLabel
+                                value={slot}
+                                control={<Radio style={{ display: 'none' }} />}
+                                label={slot}
+                                onChange={() => handleSlotChange(time, slot)}
+                                disabled={isBlocked}
+                            />
+                            {slot}
+                        </label>
+                    );
+                })}
+            </Box>
+        );
+
+
+    };
+
 
     const navigate = useNavigate()
 
@@ -182,20 +244,15 @@ export default function General_Practice() {
                                                         </LocalizationProvider>
                                                     </Grid>
                                                     <Grid item lg={6} >
-                                                        <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Morning</Typography>
-                                                        <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Afternoon</Typography>
-                                                        <Typography sx={{ marginBottom: "1rem", borderBottom: "1px solid #dddddd" }}>Evening</Typography>
-                                                        <FormControl theme={myTheme}>
-                                                            <RadioGroup
-                                                                row
-                                                                aria-labelledby="demo-row-radio-buttons-group-label"
-                                                                name="row-radio-buttons-group"
-                                                            >
-                                                                <FormControlLabel value="6:00 PM" control={<Radio sx={{ padding: "5px" }} />} label="6:00 PM" />
-                                                                <FormControlLabel value="6:10 PM" control={<Radio sx={{ padding: "5px" }} />} label="6:10 PM" />
-                                                                <FormControlLabel value="6:20 PM" control={<Radio sx={{ padding: "5px" }} />} label="6:20 PM" />
-                                                            </RadioGroup>
-                                                        </FormControl>
+                                                        <Grid item xs={12} sm={12}>
+                                                            {renderSlots('Morning')}
+                                                        </Grid>
+                                                        <Grid item xs={12} sm={12}>
+                                                            {renderSlots('Afternoon')}
+                                                        </Grid>
+                                                        <Grid item xs={12} sm={12}>
+                                                            {renderSlots('Evening')}
+                                                        </Grid>
                                                         <Button variant="contained" onClick={() => navigate('/appointment_request')} sx={{ float: "right" }}>Next</Button>
                                                     </Grid>
                                                 </Grid>
