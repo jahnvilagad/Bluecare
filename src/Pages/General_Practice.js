@@ -27,12 +27,12 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const facility = [
-    { label: 'Suzie Turn' },
-    { label: 'Suzie Turn' },
-    { label: 'Suzie Turn' },
-    { label: 'Suzie Turn' },
-];
+// const facility = [
+//     { label: 'Suzie Turn' },
+//     { label: 'Suzie Turn' },
+//     { label: 'Suzie Turn' },
+//     { label: 'Suzie Turn' },
+// ];
 
 export default function General_Practice() {
     // const [selectedId, setSelectedId] = useState(false);
@@ -273,13 +273,59 @@ export default function General_Practice() {
                                                     <Autocomplete
                                                         disablePortal
                                                         id="combo-box-demo"
-                                                        options={facility}
-                                                        renderInput={(params) => <TextField {...params} label="Facility Name" />}
+                                                        options={tags}
+                                                        getOptionLabel={(option) => option.name}
+                                                        onChange={handleTagChange}
+                                                        value={selectedTag}
+                                                        renderInput={(params) => <TextField {...params} label="Select Facility Name" />}
                                                         sx={{ marginBottom: "1rem" }}
                                                     />
-                                                    <Button variant="contained" fullWidth>Available Time Slot</Button>
+                                                    <Button variant="contained" fullWidth onClick={handleButtonClick}>Available Time Slot</Button>
                                                 </Grid>
                                             </Grid>
+                                            {displayedTag && (
+                                                <Grid container spacing={2} className={classes.RadioToolbar} >
+                                                    <Grid container spacing={2} >
+                                                        <Grid item lg={10} sx={{ display: 'flex', justifyContent: 'end' }}>
+                                                            <List sx={{ display: 'flex', justifyContent: 'end' }}>
+                                                                <ListItem>
+                                                                    <ListItemAvatar sx={{ minWidth: "32px" }}><Box sx={{ width: '1.5rem', height: '1.5rem', background: '#9fa2a6' }}></Box></ListItemAvatar>
+                                                                    <ListItemText primary="Blocked" sx={{ whiteSpace: 'nowrap' }} />
+                                                                </ListItem>
+                                                                <ListItem>
+                                                                    <ListItemAvatar sx={{ minWidth: "32px" }}><Box sx={{ width: '1.5rem', height: '1.5rem', background: '#1976d2' }}></Box></ListItemAvatar>
+                                                                    <ListItemText primary="Clinic Visit" sx={{ whiteSpace: 'nowrap' }} />
+                                                                </ListItem>
+                                                                <ListItem>
+                                                                    <ListItemAvatar sx={{ minWidth: "32px" }}><Box sx={{ width: '1.5rem', height: '1.5rem', background: '#7986cb' }}></Box></ListItemAvatar>
+                                                                    <ListItemText primary="Tele Visit" sx={{ whiteSpace: 'nowrap' }} />
+                                                                </ListItem>
+                                                            </List>
+                                                        </Grid>
+                                                    </Grid>
+                                                    <Grid item lg={4}>
+                                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                            <DemoContainer components={['DateCalendar', 'DateCalendar', 'DateCalendar']}>
+                                                                <DemoItem>
+                                                                    <DateCalendar views={['day']} />
+                                                                </DemoItem>
+                                                            </DemoContainer>
+                                                        </LocalizationProvider>
+                                                    </Grid>
+                                                    <Grid item lg={6} >
+                                                        <Grid item xs={12} sm={12}>
+                                                            {renderSlots('Morning')}
+                                                        </Grid>
+                                                        <Grid item xs={12} sm={12}>
+                                                            {renderSlots('Afternoon')}
+                                                        </Grid>
+                                                        <Grid item xs={12} sm={12}>
+                                                            {renderSlots('Evening')}
+                                                        </Grid>
+                                                        <Button variant="contained" onClick={() => navigate('/appointment_request')} sx={{ float: "right" }}>Next</Button>
+                                                    </Grid>
+                                                </Grid>
+                                            )}
                                         </FormGroup>
                                     </CardContent>
                                 </Card>
