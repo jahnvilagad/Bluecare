@@ -68,8 +68,11 @@ export default function Login(props) {
             validationError.email = 'password length at least 6 char'
         }
 
-        axios.get('http://localhost:3001/patient')
+        // axios.get('http://localhost:3001/patient')
+          axios.get('http://192.168.0.115:8000/admin/api/user/profile/')
             .then(result => {
+                console.log(result);
+                console.log(result.headers.expires);
                 result.data.map(user => {
                     if (user.uname === formData.uname) {
                         if (user.password === formData.password) {
