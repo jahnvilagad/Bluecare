@@ -160,7 +160,7 @@ export default function Set_value_master() {
                                     <CardContent>
                                         <FormGroup>
                                             <Grid container spacing={2}>
-                                                <Grid item lg={6} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
+                                                <Grid item lg={6} sm={12} xs={12} sx={{ marginBottom: "2rem" }}>
                                                     <Autocomplete
                                                         disablePortal
                                                         id="combo-box-demo"
@@ -206,7 +206,7 @@ export default function Set_value_master() {
                                                     </TableContainer>
                                                 </Grid>
 
-                                                <Grid item lg={6} sm={6} xs={12} sx={{ marginBottom: "2rem" }}>
+                                                <Grid item lg={6} sm={12} xs={12} sx={{ marginBottom: "2rem" }}>
                                                     <Box sx={{ display: 'flex' }}>
                                                         <Autocomplete
                                                             disablePortal

@@ -48,15 +48,15 @@ export default function Specialities() {
                         <Card sx={{ minWidth: 275, margin: "1.5rem", marginTop: "-3rem", zIndex: 9999 }}>
                             <CardContent>
                                 <Grid container spacing={2}>
-                                    <Grid item xs={2}>
-                                        <ButtonBase onClick={() => navigate('/')} sx={{ flexDirection: 'column' }}>
+                                    <Grid item xs={12} md={2} sm={4} textAlign="center" >
+                                        <ButtonBase onClick={() => navigate('/dental')} sx={{ flexDirection: 'column' }}>
                                             <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
                                                 <ScienceOutlinedIcon className={classes.DashboardIcon} />
                                             </Box>
                                             <Item elevation={true} sx={{fontWeight: '600',fontSize: '1rem',marginTop: '1rem'}}>Dental</Item>
                                         </ButtonBase>
                                     </Grid>
-                                    <Grid item xs={2}>
+                                    <Grid item xs={12} md={2} sm={4} textAlign="center">
                                         <ButtonBase onClick={() => navigate('/general-practice')} sx={{ flexDirection: 'column' }}>
                                             <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
                                                 <ScienceOutlinedIcon className={classes.DashboardIcon} />
@@ -64,32 +64,32 @@ export default function Specialities() {
                                             <Item elevation={true} sx={{fontWeight: '600',fontSize: '1rem',marginTop: '1rem'}}>General Practice</Item>
                                         </ButtonBase>
                                     </Grid>
-                                    <Grid item xs={2}>
-                                        <ButtonBase onClick={() => navigate('/')} sx={{ flexDirection: 'column' }}>
+                                    <Grid item xs={12} md={2} sm={4} textAlign="center">
+                                        <ButtonBase onClick={() => navigate('/laboratory')} sx={{ flexDirection: 'column' }}>
                                             <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
                                                 <ScienceOutlinedIcon className={classes.DashboardIcon} />
                                             </Box>
                                             <Item elevation={true} sx={{fontWeight: '600',fontSize: '1rem',marginTop: '1rem'}}>Laboratory</Item>
                                         </ButtonBase>
                                     </Grid>
-                                    <Grid item xs={2}>
-                                        <ButtonBase onClick={() => navigate('/')} sx={{ flexDirection: 'column' }}>
+                                    <Grid item xs={12} md={2} sm={4} textAlign="center">
+                                        <ButtonBase onClick={() => navigate('/nurse')} sx={{ flexDirection: 'column' }}>
                                             <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
                                                 <ScienceOutlinedIcon className={classes.DashboardIcon} />
                                             </Box>
                                             <Item elevation={true} sx={{fontWeight: '600',fontSize: '1rem',marginTop: '1rem'}}>Nurse</Item>
                                         </ButtonBase>
                                     </Grid>
-                                    <Grid item xs={2}>
-                                        <ButtonBase onClick={() => navigate('/')} sx={{ flexDirection: 'column' }}>
+                                    <Grid item xs={12} md={2} sm={4} textAlign="center">
+                                        <ButtonBase onClick={() => navigate('/obs-gyn')} sx={{ flexDirection: 'column' }}>
                                             <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
                                                 <ScienceOutlinedIcon className={classes.DashboardIcon} />
                                             </Box>
                                             <Item elevation={true} sx={{fontWeight: '600',fontSize: '1rem',marginTop: '1rem'}}>OBS-GYN</Item>
                                         </ButtonBase>
                                     </Grid>
-                                    <Grid item xs={2}>
-                                        <ButtonBase onClick={() => navigate('/')} sx={{ flexDirection: 'column' }}>
+                                    <Grid item xs={12} md={2} sm={4} textAlign="center">
+                                        <ButtonBase onClick={() => navigate('/pediatrician')} sx={{ flexDirection: 'column' }}>
                                             <Box sx={{width: '4rem',height: '4rem',boxShadow: '0 0 2rem 0 rgba(136, 152, 170, 0.15)',borderRadius: '50%',lineHeight: '83px'}}>
                                                 <ScienceOutlinedIcon className={classes.DashboardIcon} />
                                             </Box>

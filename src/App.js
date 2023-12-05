@@ -9,6 +9,11 @@ import Profile from './Pages/Profile';
 import Medical_History from './Pages/Medical_History';
 import Appointments from './Pages/Appointments';
 import General_Practice from './Pages/General_Practice';
+import Laboratory from './Pages/Laboratory';
+import Dental from './Pages/Dental';
+import Nurse from './Pages/Nurse';
+import Obs_Gyn from './Pages/Obs_Gyn';
+import Pediatrician from './Pages/Pediatrician';
 import Appointment_Request from './Pages/Appointment_Request';
 import Patient_Profile from './Pages/Patient_Profile';
 import Sample_Collection_Department_Mapping from './Pages/Sample_Collection_Department_Mapping';
@@ -32,6 +37,11 @@ function App() {
         <Route path='/medial-history' element={<Medical_History />}></Route>
         <Route path='/appointments' element={<Appointments />}></Route>
         <Route path='/general-practice' element={<General_Practice />}></Route>
+        <Route path='/dental' element={<Dental />}></Route>
+        <Route path='/laboratory' element={<Laboratory />}></Route>
+        <Route path='/nurse' element={<Nurse />}></Route>
+        <Route path='/obs-gyn' element={<Obs_Gyn />}></Route>
+        <Route path='/pediatrician' element={<Pediatrician />}></Route>
         <Route path='/appointment_request' element={<Appointment_Request />}></Route>
         <Route path='/patient_profile' element={<Patient_Profile />}></Route>
         <Route path='/sample-collection-department-mapping' element={<Sample_Collection_Department_Mapping />}></Route>
