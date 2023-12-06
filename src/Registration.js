@@ -45,14 +45,16 @@ ElevationScroll.propTypes = {
 
 export default function Registation(props) {
     const [formData, setFormData] = useState({
-        uname: '',
+        // uname: '',
         email: '',
         password: '',
-        cpassword: ''
+        // cpassword: ''
     })
+    console.log(formData);
     const [errors, setErrors] = useState({})
     const [valid, setValid] = useState(true)
     const navigate = useNavigate()
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -76,20 +78,21 @@ export default function Registation(props) {
             isvalid = false;
             validationError.email = 'password length at least 6 char'
         }
-        if (formData.cpassword !== formData.password) {
-            isvalid = false;
-            validationError.cpassword = 'Confirm Password not match'
-        }
+        // if (formData.cpassword !== formData.password) {
+        //     isvalid = false;
+        //     validationError.cpassword = 'Confirm Password not match'
+        // }
         setErrors(validationError)
         setValid(isvalid)
 
         if (Object.keys(validationError).length === 0) {
-            axios.post('http://localhost:3001/patient', formData)
+            console.log("Axios POST request sent....");
+            axios.post('https://reqres.in/api/register', formData)
             .then(result =>{
+                console.log(result);
                 navigate('/')
             })
             .catch(err => console.log(err))
-
         }
     }
 
@@ -129,11 +132,11 @@ export default function Registation(props) {
                                                 {
                                                     valid ? <></> :
                                                         <span className={classes.TextRed}>
-                                                            {errors.uname}; {errors.email}; {errors.password}; {errors.cpassword}
+                                                            {errors.uname}; {errors.email}; {errors.password}; 
                                                         </span>
 
                                                 }
-                                                <TextField
+                                                {/* <TextField
                                                     id="outlined-required"
                                                     label="Username"
                                                     placeholder='Enter Username'
@@ -141,7 +144,7 @@ export default function Registation(props) {
                                                     fullWidth
                                                     sx={{ marginBottom: '1.5rem' }}
                                                     onChange={(event) => setFormData({ ...formData, uname: event.target.value })}
-                                                />
+                                                /> */}
                                                 <TextField
                                                     id="outlined-required"
                                                     label="Email"
@@ -162,7 +165,7 @@ export default function Registation(props) {
                                                     sx={{ marginBottom: '1.5rem' }}
                                                     onChange={(event) => setFormData({ ...formData, password: event.target.value })}
                                                 />
-                                                <TextField
+                                                {/* <TextField
                                                     id="outlined-required"
                                                     label="Confirm Password"
                                                     placeholder='Enter Confirm Password'
@@ -171,7 +174,7 @@ export default function Registation(props) {
                                                     fullWidth
                                                     sx={{ marginBottom: '1.5rem' }}
                                                     onChange={(event) => setFormData({ ...formData, cpassword: event.target.value })}
-                                                />
+                                                /> */}
 
                                                 <Button variant='contained' type='submit'>
                                                     Create Account

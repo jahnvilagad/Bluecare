@@ -21,6 +21,7 @@ import Set_value_master from './Pages/Set_value_master';
 import Dropdown from './Pages/Dropdown';
 import Login from './Login';
 import Registration from './Registration';
+import Patientlist from './Patientlist';
 
 
 
@@ -48,6 +49,7 @@ function App() {
         <Route path='/set-value-master' element={<Set_value_master />}></Route>
         <Route path='/dropdown' element={<Dropdown />}></Route>
         <Route path='/register' element={<Registration />}></Route>
+        <Route path='/patientlist' element={<Patientlist />}></Route>
       </Routes>
     </BrowserRouter>
   );

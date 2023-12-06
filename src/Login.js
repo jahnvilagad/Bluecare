@@ -69,7 +69,7 @@ export default function Login(props) {
         }
 
         axios.get('http://localhost:3001/patient')
-        //   axios.get('http://192.168.0.115:8000/admin/api/user/profile/')
+            //   axios.get('http://192.168.0.115:8000/admin/api/user/profile/')
             .then(result => {
                 // console.log(result);
                 // console.log(result.headers.expires);
@@ -157,7 +157,7 @@ export default function Login(props) {
 
                                 <Box sx={{ my: 2 }}>
                                     <Button variant='text' onClick={() => navigate('/register')} sx={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-                                       Register
+                                        Register
                                     </Button>
                                 </Box>
                             </Grid>

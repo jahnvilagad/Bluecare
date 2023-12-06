@@ -34,7 +34,7 @@ import axios from 'axios';
 //     { label: 'Suzie Turn' },
 // ];
 
-export default function General_Practice() {
+export default function Dental() {
     // const [selectedId, setSelectedId] = useState(false);
 
     const [tags, setTags] = useState([]);
